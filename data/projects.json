@@ -1,0 +1,60 @@
+{
+    "projects": [
+        {
+            "id": "eventhub",
+            "name": "EventHub",
+            "description": "A Django-based web app where university societies manage events and memberships, and students can join, RSVP, and participate in discussions.",
+            "tags": ["Django", "DRF", "JavaScript", "SQLite"],
+            "year": "2025",
+            "page": "projects/eventhub.html",
+            "image": null,
+            "featured": true,
+            "links": {
+                "live": "",
+                "github": ""
+            }
+        },
+        {
+            "id": "edunet",
+            "name": "Edunet",
+            "description": "A local-first offline classroom platform built with Flutter for chat, file sharing, and calls without internet.",
+            "tags": ["Flutter", "WebRTC", "Nearby Connections", "Hive"],
+            "year": "2025",
+            "page": "projects/edunet.html",
+            "image": null,
+            "featured": true,
+            "links": {
+                "live": "",
+                "github": ""
+            }
+        },
+        {
+            "id": "aura-pro",
+            "name": "AURA Pro",
+            "description": "A single-page product showcase for AURA Pro headphones with interactive 3D viewing and scroll-led storytelling.",
+            "tags": ["HTML", "CSS", "GSAP", "Three.js"],
+            "year": "2026",
+            "page": "projects/aura-pro.html",
+            "image": null,
+            "featured": true,
+            "links": {
+                "live": "",
+                "github": ""
+            }
+        },
+        {
+            "id": "theo-of-evolution",
+            "name": "Theo of Evolution",
+            "description": "A scroll-driven storytelling site about the evolution of life with theme selection and immersive scenes.",
+            "tags": ["React", "Vite", "GSAP", "ScrollTrigger"],
+            "year": "2026",
+            "page": "projects/theo-of-evolution.html",
+            "image": null,
+            "featured": true,
+            "links": {
+                "live": "",
+                "github": ""
+            }
+        }
+    ]
+}

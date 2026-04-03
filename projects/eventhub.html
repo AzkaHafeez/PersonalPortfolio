@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub | AZK.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">AZKA.</a>
+        <div class="nav-links">
+            <a href="../index.html#about" class="nav-link">About</a>
+            <a href="../index.html#work" class="nav-link">Work</a>
+            <a href="../index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-back">
+                <span class="project-back-arrow">←</span>
+                <span>Back to projects</span>
+            </a>
+            <h1 class="project-hero-title">EventHub</h1>
+            <div class="project-hero-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Frontend Developer (with @Sanehaakhtar)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Team project</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-detail-content">
+        <div class="project-section">
+            <h2 class="project-section-title">Overview</h2>
+            <p>
+                EventHub is a Django-based platform where university societies manage events and memberships.
+                Students can join societies, RSVP to events, and participate in discussions.
+            </p>
+            <p>
+                Frontend development by @AzkaHafeez and @Sanehaakhtar, backend development by @SohSohh.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-section-title">The Challenge</h2>
+            <p>
+                Societies needed a role-based system that balanced open access for students with
+                structured control for handlers and admins.
+            </p>
+            <p>
+                We also had to keep membership management, event assets, and feedback in one
+                place without overcomplicating the interface.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-section-title">The Solution</h2>
+            <p>
+                We built a role-aware dashboard with society management, event creation,
+                and handler applications tied to admin approvals and email notifications.
+            </p>
+            <p>
+                JWT authentication and a custom user model keep permissions clean across the UI and API.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-section-title">Tech Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-item">Django</span>
+                <span class="tech-item">Django REST Framework</span>
+                <span class="tech-item">SimpleJWT</span>
+                <span class="tech-item">HTML</span>
+                <span class="tech-item">CSS</span>
+                <span class="tech-item">JavaScript</span>
+                <span class="tech-item">SQLite</span>
+                <span class="tech-item">SMTP</span>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-section-title">Key Features</h2>
+            <p>
+                <strong>• User Roles</strong> — Viewers (students), handlers (society reps), and admins.
+            </p>
+            <p>
+                <strong>• Society and Membership Management</strong> — Join codes, role assignments, and approvals.
+            </p>
+            <p>
+                <strong>• Event Management</strong> — Banners, categories, descriptions, and updates.
+            </p>
+            <p>
+                <strong>• Handler Applications</strong> — Admin approval workflow with email notifications.
+            </p>
+            <p>
+                <strong>• Comments and Ratings</strong> — Event feedback and discussion threads.
+            </p>
+            <p>
+                <strong>• Admin Dashboard</strong> — Manage databases and monitor platform stats.
+            </p>
+        </div>
+
+        <div class="project-links">
+            <a href="https://sohsohh.github.io/EventHub/DB_ESP/frontend/index.html" target="_blank" class="project-link primary">
+                <span>View Live</span>
+                <span>↗</span>
+            </a>
+            <a href="https://github.com/SohSohh/EventHub" target="_blank" class="project-link">
+                <span>View Code</span>
+                <span>↗</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="footer-logo">AZKA.</span>
+            <span class="footer-year">© 2026</span>
+            <span class="footer-credit">Crafted with obsession</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../js/project-page.js"></script>
+</body>
+</html>

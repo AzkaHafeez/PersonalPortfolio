@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edunet | AZK.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">AZKA.</a>
+        <div class="nav-links">
+            <a href="../index.html#about" class="nav-link">About</a>
+            <a href="../index.html#work" class="nav-link">Work</a>
+            <a href="../index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <a href="../index.html#work" class="project-back">
+                <span class="project-back-arrow">←</span>
+                <span>Back to projects</span>
+            </a>
+            <h1 class="project-hero-title">Edunet</h1>
+            <div class="project-hero-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Flutter Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Prototype build</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-detail-content">
+        <div class="project-section">
+            <h2 class="project-section-title">Overview</h2>
+            <p>
+                Edunet is a local-first, offline classroom platform built with Flutter.
+                It lets teachers and students communicate, share files, and run calls without internet.
+            </p>
+            <p>
+                The app runs on Android devices that support BLE and Wi-Fi Direct.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-section-title">The Challenge</h2>
+            <p>
+                Most classroom tools assume stable internet, which breaks down in low-connectivity
+                environments and during on-campus demos.
+            </p>
+            <p>
+                The challenge was building reliable peer-to-peer communication with clear roles
+                for teachers (hosts) and students (clients).
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-section-title">The Solution</h2>
+            <p>
+                We used Google Nearby Connections for offline discovery and data transfer,
+                paired with WebRTC for audio and video calls.
+            </p>
+            <p>
+                A star topology with application-layer routing lets the teacher node rebroadcast
+                student messages, simulating a mesh-like classroom network.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-section-title">Tech Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-item">Flutter</span>
+                <span class="tech-item">Provider</span>
+                <span class="tech-item">Hive</span>
+                <span class="tech-item">nearby_connections</span>
+                <span class="tech-item">flutter_webrtc</span>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-section-title">Key Features</h2>
+            <p>
+                <strong>• Offline Connectivity</strong> — Google Nearby Connections for local discovery.
+            </p>
+            <p>
+                <strong>• Real-time Chat and File Sharing</strong> — Lightweight classroom messaging.
+            </p>
+            <p>
+                <strong>• Audio and Video Calls</strong> — WebRTC-based communication without internet.
+            </p>
+            <p>
+                <strong>• Role-based Access</strong> — Teachers host, students join as clients.
+            </p>
+            <p>
+                <strong>• Mesh-like Rebroadcasting</strong> — Teacher node forwards student messages.
+            </p>
+            <p>
+                <strong>• Android Support</strong> — Requires BLE and Wi-Fi Direct capable devices.
+            </p>
+        </div>
+
+        <div class="project-links">
+            <a href="#" target="_blank" class="project-link primary">
+                <span>View Live</span>
+                <span>↗</span>
+            </a>
+            <a href="#" target="_blank" class="project-link">
+                <span>View Code</span>
+                <span>↗</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="footer-logo">AZKA.</span>
+            <span class="footer-year">© 2026</span>
+            <span class="footer-credit">Crafted with obsession</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../js/project-page.js"></script>
+</body>
+</html>
