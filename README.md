@@ -18,6 +18,7 @@ A minimal, editorial-style portfolio website with smooth animations and a unique
 ```
 portfolio/
 ├── index.html              # Main portfolio page
+├── README.md               # Project overview
 ├── css/
 │   └── style.css           # All styles
 ├── js/
@@ -26,9 +27,11 @@ portfolio/
 ├── data/
 │   └── projects.json       # Project data (easily editable)
 └── projects/
-    ├── eventhub.html       # EventHub project details
+    ├── aura-pro.html       # Aura Pro project details
+    ├── captainmdcat.html   # CaptainMDCAT project details
     ├── edunet.html         # Edunet project details
-    └── captainmdcat.html   # CaptainMDCAT project details
+    ├── eventhub.html       # EventHub project details
+    └── theo-of-evolution.html # Theory of Evolution project details
 ```
 
 ## ✏️ Customization
