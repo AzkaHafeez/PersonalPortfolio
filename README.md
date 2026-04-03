@@ -1,104 +1,33 @@
-# AZK. Portfolio
+# AZKA.
 
-A minimal, editorial-style portfolio website with smooth animations and a unique aesthetic.
+Computer science student building clear, story-led interfaces and practical software.
+I explore AI, data science, and cybersecurity while shipping web experiences that feel
+responsive and easy to follow.
 
-## 🚀 Features
+## Focus
 
-- **Custom cursor** with magnetic hover effects
-- **Smooth GSAP animations** throughout
-- **Orbiting skills** visualization
-- **Bento-style project grid** with dynamic loading
-- **Individual project pages** (open in new tabs)
-- **Email scramble effect** on hover
-- **Mobile-responsive** with hamburger menu
-- **Fast & lightweight** - no heavy frameworks
+- Interface design that prioritizes clarity and motion
+- Applied AI and data workflows for real-world products
+- Secure-by-design patterns in everyday software
 
-## 📁 Structure
+## Selected work
 
-```
-portfolio/
-├── index.html              # Main portfolio page
-├── README.md               # Project overview
-├── css/
-│   └── style.css           # All styles
-├── js/
-│   ├── main.js             # Main page scripts
-│   └── project-page.js     # Project detail page scripts
-├── data/
-│   └── projects.json       # Project data (easily editable)
-└── projects/
-    ├── aura-pro.html       # Aura Pro project details
-    ├── captainmdcat.html   # CaptainMDCAT project details
-    ├── edunet.html         # Edunet project details
-    ├── eventhub.html       # EventHub project details
-    └── theo-of-evolution.html # Theory of Evolution project details
-```
+- CaptainMDCAT - AI-powered MDCAT prep platform with adaptive testing and analytics
+- EventHub - Django platform for university societies, events, and memberships
+- Edunet - Offline classroom platform using Flutter, Nearby Connections, and WebRTC
+- AURA Pro - Single-page 3D product showcase with GSAP and Three.js
+- Theo of Evolution - Scroll-driven storytelling site built with React and GSAP
 
-## ✏️ Customization
+## Tools and skills
 
-### Adding New Projects
+- JavaScript, React, Python, Node.js
+- HTML, CSS, UI/UX, GSAP
+- Django, Firebase, SQLite
 
-1. Add your project to `data/projects.json`:
-```json
-{
-    "id": "your-project",
-    "name": "Project Name",
-    "description": "Short description",
-    "tags": ["React", "Node.js"],
-    "year": "2025",
-    "page": "projects/your-project.html",
-    "image": "images/your-project.jpg",
-    "featured": true,
-    "links": {
-        "live": "https://your-site.com",
-        "github": "https://github.com/you/project"
-    }
-}
-```
+## Contact
 
-2. Create a new HTML file in `projects/` (copy an existing one as template)
+- Email: azkahafeez7@gmail.com
+- GitHub: https://github.com/AzkaHafeez
+- LinkedIn: https://www.linkedin.com/in/azka-hafeez-7b5971328/
 
-3. That's it! The project will automatically appear on the homepage.
-
-### Changing Personal Info
-
-- **Name/Logo**: Search for "AZK." in HTML files
-- **Email**: Update in `index.html` (contact section)
-- **Social Links**: Update URLs in `index.html`
-- **About Text**: Edit the about section in `index.html`
-- **Skills**: Update the orbit skills in `index.html`
-
-### Changing Colors
-
-Edit the CSS variables at the top of `css/style.css`:
-```css
-:root {
-    --color-bg: #F5F2EB;        /* Background */
-    --color-bg-dark: #EBE7DD;   /* Darker background */
-    --color-text: #1A1A1A;       /* Text color */
-    --color-text-muted: #6B6B6B; /* Muted text */
-    --color-highlight: #E63946;  /* Accent color */
-}
-```
-
-## 🌐 Deployment
-
-This is a static site. Deploy anywhere:
-
-- **GitHub Pages** (free)
-- **Netlify** (free)
-- **Vercel** (free)
-- Any web hosting
-
-Just upload the entire `portfolio` folder.
-
-## 💡 Tips
-
-- Add actual project images for better visual impact
-- Keep project descriptions concise but impactful
-- Update the stats (projects shipped, years learning) to reflect your actual numbers
-- Add more social links as needed
-
-## 📝 License
-
-Do whatever you want with it. It's yours now. 🤙
+Open to project collaborations and internships.
