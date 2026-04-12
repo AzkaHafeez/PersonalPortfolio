@@ -292,6 +292,20 @@ button {
     }
 }
 
+@media (max-width: 480px) {
+    .nav {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .nav-logo {
+        font-size: 1.25rem;
+    }
+
+    .nav-menu-btn span {
+        width: 22px;
+    }
+}
+
 /* ==========================================
    Hero Section
    ========================================== */
@@ -439,6 +453,28 @@ button {
     
     .hero-scroll {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 5rem 1.5rem 3rem;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 14vw, 6rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-marquee {
+        padding: 1rem 0;
+    }
+
+    .marquee-track span {
+        font-size: 0.75rem;
     }
 }
 
@@ -661,6 +697,59 @@ button {
     }
 }
 
+@media (max-width: 480px) {
+    .about {
+        padding: 5rem 1.5rem;
+    }
+
+    .about-grid {
+        gap: 2rem;
+    }
+
+    .label-text {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+    }
+
+    .about-title {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+        margin-bottom: 2rem;
+    }
+
+    .about-bio p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .about-stats {
+        gap: 1.25rem;
+    }
+
+    .stat {
+        min-width: 0;
+    }
+
+    .stat-number {
+        font-size: clamp(1.25rem, 7vw, 2rem);
+        line-height: 1.1;
+        word-break: break-word;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+    }
+
+    .skills-orbit {
+        transform: scale(0.6);
+        margin-top: 1.5rem;
+    }
+
+    .skill {
+        font-size: 0.65rem;
+    }
+}
+
 /* ==========================================
    Work Section
    ========================================== */
@@ -848,6 +937,54 @@ button {
     }
 }
 
+@media (max-width: 480px) {
+    .work {
+        padding: 5rem 1.5rem;
+    }
+
+    .work-header {
+        margin: 0 auto 3.5rem;
+        gap: 1.5rem;
+    }
+
+    .work-title {
+        font-size: clamp(2rem, 8vw, 2.75rem);
+    }
+
+    .projects-grid {
+        gap: 1.5rem;
+    }
+
+    .project-placeholder {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .project-info {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+
+    .project-name {
+        font-size: 1.25rem;
+    }
+
+    .project-tag {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .project-year {
+        font-size: 0.75rem;
+    }
+
+    .project-arrow {
+        display: none;
+    }
+}
+
 /* ==========================================
    Contact Section
    ========================================== */
@@ -998,6 +1135,35 @@ button {
 @media (max-width: 768px) {
     .contact {
         padding: 6rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 5rem 1.5rem;
+    }
+
+    .contact-title {
+        font-size: clamp(2.25rem, 9vw, 3rem);
+    }
+
+    .contact-desc {
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-email {
+        font-size: clamp(1.25rem, 6vw, 1.75rem);
+        word-break: break-word;
+    }
+
+    .contact-socials {
+        gap: 1rem;
+    }
+
+    .social-link {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
     }
 }
 
