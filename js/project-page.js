@@ -54,6 +54,27 @@ hoverElements.forEach(el => {
 });
 
 // ==========================================
+// Mobile Menu
+// ==========================================
+const menuBtn = document.querySelector('.nav-menu-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+menuBtn?.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    mobileMenu?.classList.toggle('open');
+    document.body.style.overflow = mobileMenu?.classList.contains('open') ? 'hidden' : '';
+});
+
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuBtn?.classList.remove('active');
+        mobileMenu?.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+});
+
+// ==========================================
 // Page Load Animations
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
