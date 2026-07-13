@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {
+      "name": "Artificial Intelligence",
+      "items": ["TensorFlow", "Model Evaluation", "Adaptive Testing", "ML Pipelines"]
+    },
+    {
+      "name": "Machine Learning",
+      "items": ["Performance Analytics", "Personalization", "Data Pipelines"]
+    },
+    {
+      "name": "Backend",
+      "items": ["Python", "Django", "Django REST Framework", "Node.js", "Cloud Functions"]
+    },
+    {
+      "name": "Frontend",
+      "items": ["React", "Next.js", "TypeScript", "HTML", "CSS", "Tailwind CSS", "GSAP", "Framer Motion"]
+    },
+    {
+      "name": "Mobile",
+      "items": ["Flutter", "WebRTC", "PWA"]
+    },
+    {
+      "name": "Databases",
+      "items": ["SQLite", "Firebase", "Hive"]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "items": ["Firebase", "Vercel", "SMTP", "Algolia"]
+    },
+    {
+      "name": "Programming Languages",
+      "items": ["JavaScript", "TypeScript", "Python", "Dart"]
+    },
+    {
+      "name": "Tools & Frameworks",
+      "items": ["Git", "Three.js", "Vite", "ScrollTrigger", "SimpleJWT", "Lucide"]
+    }
+  ]
+}

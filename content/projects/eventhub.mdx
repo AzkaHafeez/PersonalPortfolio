@@ -1,0 +1,74 @@
+---
+slug: eventhub
+title: EventHub
+description: Django-based platform where university societies manage events, memberships, and student engagement.
+role: Frontend Developer
+duration: Team project · 2025
+year: "2025"
+featured: true
+tag: Platform
+coverImage: /images/projects/eventhub-cover.svg
+images:
+  - src: /images/projects/eventhub-1.svg
+    alt: EventHub society dashboard
+  - src: /images/projects/eventhub-2.svg
+    alt: Societies and membership management
+  - src: /images/projects/eventhub-3.svg
+    alt: Event creation and RSVP flow
+  - src: /images/projects/eventhub-4.svg
+    alt: Admin oversight panel
+tags:
+  - Django
+  - DRF
+  - JavaScript
+  - SQLite
+links:
+  live: https://sohsohh.github.io/EventHub/DB_ESP/frontend/index.html
+  github: https://github.com/SohSohh/EventHub
+  caseStudy: true
+technologies:
+  - Django
+  - Django REST Framework
+  - SimpleJWT
+  - HTML
+  - CSS
+  - JavaScript
+  - SQLite
+  - SMTP
+---
+
+## Overview
+
+EventHub is a Django-based platform where university societies manage events and memberships. Students can join societies, RSVP to events, and participate in discussions.
+
+Frontend development by Azka Hafeez and Saneha Akhtar, backend development by Sohail.
+
+## Challenges
+
+Societies needed a role-based system that balanced open access for students with structured control for handlers and admins.
+
+We also had to keep membership management, event assets, and feedback in one place without overcomplicating the interface.
+
+## Architecture
+
+Django REST Framework powers the API with SimpleJWT authentication and a custom user model. The frontend communicates via JavaScript with role-aware dashboards for viewers, handlers, and admins. SQLite handles data persistence with SMTP for email notifications.
+
+## User Flow
+
+Students browse societies, apply to join with codes, RSVP to events, and leave feedback. Handlers manage their society's events and memberships. Admins approve handler applications and monitor platform statistics.
+
+## Development Process
+
+Planned role hierarchies with the team, wireframed dashboards for each user type, iterated on the membership approval workflow, and integrated JWT auth across frontend and API layers.
+
+## Results
+
+Delivered a complete role-based event management platform with society management, event creation, handler applications, and admin oversight—all in a single cohesive interface.
+
+## Technologies
+
+Django, Django REST Framework, SimpleJWT, HTML, CSS, JavaScript, SQLite, and SMTP.
+
+## Reflection
+
+Role-based systems need ruthless clarity in the UI—every screen should make the user's permissions obvious. I'd add more granular notification preferences and improve the mobile experience for on-campus event check-ins.

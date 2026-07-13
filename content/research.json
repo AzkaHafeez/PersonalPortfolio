@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": "adaptive-ml",
+      "title": "Adaptive Learning Systems",
+      "description": "Experimenting with real-time difficulty adjustment and personalized study path generation for education platforms.",
+      "status": "Active",
+      "tags": ["ML", "Education", "Personalization"]
+    },
+    {
+      "id": "offline-p2p",
+      "title": "Offline Peer-to-Peer Networks",
+      "description": "Exploring mesh-like classroom communication without internet using BLE and Wi-Fi Direct.",
+      "status": "Exploring",
+      "tags": ["Flutter", "WebRTC", "P2P"]
+    },
+    {
+      "id": "editorial-ui",
+      "title": "Editorial Interface Patterns",
+      "description": "Researching publication-style layouts and scroll-driven storytelling for product marketing sites.",
+      "status": "Active",
+      "tags": ["Motion Design", "Typography", "UX"]
+    },
+    {
+      "id": "cv-pipelines",
+      "title": "Computer Vision Pipelines",
+      "description": "Building practical CV workflows for image analysis and content understanding in web applications.",
+      "status": "Learning",
+      "tags": ["Computer Vision", "AI", "Python"]
+    }
+  ]
+}

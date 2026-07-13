@@ -1,33 +1,46 @@
-# AZKA.
+# AZKA. — Editorial Portfolio
 
-Computer science student building clear, story-led interfaces and practical software.
-I explore AI, data science, and cybersecurity while shipping web experiences that feel
-responsive and easy to follow.
+AI Engineer & Full-Stack Developer portfolio built with Next.js, Tailwind CSS, and Framer Motion.
 
-## Focus
+## Stack
 
-- Interface design that prioritizes clarity and motion
-- Applied AI and data workflows for real-world products
-- Secure-by-design patterns in everyday software
+- **Next.js 15** (App Router)
+- **React 19**
+- **Tailwind CSS v4**
+- **Framer Motion**
+- **MDX** (case studies & writing)
+- **next-themes** (dark/light mode)
 
-## Selected work
+## Development
 
-- CaptainMDCAT - AI-powered MDCAT prep platform with adaptive testing and analytics
-- EventHub - Django platform for university societies, events, and memberships
-- Edunet - Offline classroom platform using Flutter, Nearby Connections, and WebRTC
-- AURA Pro - Single-page 3D product showcase with GSAP and Three.js
-- Theo of Evolution - Scroll-driven storytelling site built with React and GSAP
+```bash
+npm install
+npm run dev
+```
 
-## Tools and skills
+Open [http://localhost:3000](http://localhost:3000).
 
-- JavaScript, React, Python, Node.js
-- HTML, CSS, UI/UX, GSAP
-- Django, Firebase, SQLite
+## Adding Content
+
+### New project
+1. Create `content/projects/my-project.mdx` with frontmatter
+2. Add cover image to `public/images/projects/` (optional)
+
+### New experience entry
+Append to `content/experience.json`
+
+### New article
+Create `content/writing/my-article.mdx`
+
+### Resume
+Place PDF at `public/resume.pdf`
+
+## Legacy
+
+The original static HTML portfolio is preserved in `legacy/`.
 
 ## Contact
 
 - Email: azkahafeez7@gmail.com
 - GitHub: https://github.com/AzkaHafeez
 - LinkedIn: https://www.linkedin.com/in/azka-hafeez-7b5971328/
-
-Open to project collaborations and internships.

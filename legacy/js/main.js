@@ -278,14 +278,6 @@ async function loadProjects() {
                 tags: ['HTML', 'CSS', 'GSAP', 'Three.js'],
                 year: '2026',
                 page: 'projects/aura-pro.html'
-            },
-            {
-                id: 'theo-of-evolution',
-                name: 'Theo of Evolution',
-                description: 'Scroll-driven evolution storytelling site',
-                tags: ['React', 'Vite', 'GSAP', 'ScrollTrigger'],
-                year: '2026',
-                page: 'projects/theo-of-evolution.html'
             }
         ];
         

@@ -1,0 +1,71 @@
+---
+slug: aura-pro
+title: AURA Pro
+description: Single-page product showcase for wireless headphones with interactive 3D viewing and scroll-led storytelling.
+role: Frontend Developer
+duration: Product sprint · 2026
+year: "2026"
+featured: true
+tag: Product Showcase
+coverImage: /images/projects/aura-pro-cover.svg
+images:
+  - src: /images/projects/aura-pro-1.svg
+    alt: AURA Pro hero with 3D product viewer
+  - src: /images/projects/aura-pro-2.svg
+    alt: Feature storytelling section
+  - src: /images/projects/aura-pro-3.svg
+    alt: Spec counters and product details
+  - src: /images/projects/aura-pro-4.svg
+    alt: Final call-to-action
+tags:
+  - HTML
+  - CSS
+  - GSAP
+  - Three.js
+links:
+  live: https://product-showcase-lilac.vercel.app/
+  github: https://github.com/AzkaHafeez/ProductShowcase
+  caseStudy: true
+technologies:
+  - HTML
+  - CSS
+  - GSAP
+  - Three.js
+  - Lucide
+---
+
+## Overview
+
+AURA Pro is a single-page product landing site for wireless headphones featuring interactive 3D product viewing and cinematic motion.
+
+The page is built to feel premium while staying lightweight, with a fallback viewer for devices that cannot render WebGL.
+
+## Challenges
+
+The challenge was creating a high-impact product story without heavy assets or performance drops on mid-range devices.
+
+The experience also needed to degrade gracefully for users who cannot load 3D content.
+
+## Architecture
+
+A scroll-led layout with GSAP reveal animations drives the narrative. Three.js renders an interactive GLB model in the hero section, with an SVG fallback when WebGL is unavailable. Feature cards, spec counters, and CTA sections are progressively revealed on scroll.
+
+## User Flow
+
+Visitors land on the 3D hero viewer, scroll through feature highlights with animated reveals, scan spec counters for key stats, and reach a final call-to-action. Mobile users get an adapted layout with touch-friendly navigation.
+
+## Development Process
+
+Wireframed the scroll narrative, built the 3D viewer with fallback logic, choreographed GSAP reveal sequences, and optimized asset loading for mid-range devices.
+
+## Results
+
+Delivered a premium product showcase that feels cinematic yet loads fast, with graceful degradation for non-WebGL devices.
+
+## Technologies
+
+HTML, CSS, GSAP, Three.js, and Lucide icons.
+
+## Reflection
+
+Product showcases succeed when motion guides attention rather than competing with it. I'd add lazy-loading for the 3D model and experiment with scroll-linked camera angles for deeper product exploration.

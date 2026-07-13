@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--background);
+  --color-bg-muted: var(--background-muted);
+  --color-fg: var(--foreground);
+  --color-fg-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-cream: #fff6ee;
+  --color-obsidian: #262628;
+  --color-lavender: #c6c2f2;
+  --color-lime: #d6dc82;
+  --color-cherry: #d86072;
+  --font-sans: var(--font-space-grotesk);
+  --font-serif: var(--font-playfair);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --background: #fff6ee;
+  --background-muted: #f3ebe3;
+  --foreground: #262628;
+  --foreground-muted: #6b6864;
+  --border: #e8ddd3;
+  --accent: #d86072;
+}
+
+.dark {
+  --background: #262628;
+  --background-muted: #333336;
+  --foreground: #fff6ee;
+  --foreground-muted: #a8a4a0;
+  --border: #3f3f42;
+  --accent: #d86072;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-lavender) 45%, transparent);
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .editorial-rule {
+    @apply border-t border-border;
+  }
+
+  .section-padding {
+    @apply px-6 py-24 md:px-10 lg:px-16 xl:px-24;
+  }
+
+  .container-editorial {
+    @apply mx-auto w-full max-w-[1400px];
+  }
+
+  .font-serif-display {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+
+  .label-caps {
+    @apply text-[0.7rem] font-medium uppercase tracking-[0.2em] text-fg-muted;
+  }
+}
+
+@keyframes film-grain {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: -40px 30px;
+  }
+  50% {
+    background-position: 20px -50px;
+  }
+  75% {
+    background-position: -30px -20px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-film-grain {
+    animation: film-grain 8s steps(4) infinite;
+  }
+}

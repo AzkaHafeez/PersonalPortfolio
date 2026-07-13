@@ -1,0 +1,47 @@
+{
+  "entries": [
+    {
+      "id": "captainmdcat",
+      "company": "CaptainMDCAT",
+      "role": "Founder & Developer",
+      "duration": "6 months · 2024",
+      "summary": "Built an AI-powered MDCAT preparation platform serving 10,000+ students with adaptive testing, personalized study plans, and performance analytics.",
+      "contributions": [
+        "Designed adaptive testing engine with real-time difficulty adjustment",
+        "Built AI study planner based on weak-area analysis",
+        "Implemented gamification with streaks, badges, and leaderboards",
+        "Deployed as PWA with Firebase backend and Cloud Functions"
+      ],
+      "technologies": ["React", "Firebase", "Python", "TensorFlow", "Algolia", "PWA"],
+      "links": { "live": "https://captainmdcat.com", "github": "https://github.com/azk/captainmdcat" }
+    },
+    {
+      "id": "eventhub",
+      "company": "EventHub",
+      "role": "Frontend Developer",
+      "duration": "Team project · 2025",
+      "summary": "Django-based platform for university societies to manage events, memberships, and student engagement with role-based dashboards.",
+      "contributions": [
+        "Co-developed frontend with role-aware society and event management UI",
+        "Implemented JWT-authenticated dashboards for students, handlers, and admins",
+        "Built event RSVP, discussion, and feedback interfaces"
+      ],
+      "technologies": ["Django", "DRF", "JavaScript", "HTML", "CSS", "SQLite"],
+      "links": { "live": "https://sohsohh.github.io/EventHub/DB_ESP/frontend/index.html", "github": "https://github.com/SohSohh/EventHub" }
+    },
+    {
+      "id": "edunet",
+      "company": "Edunet",
+      "role": "Flutter Developer",
+      "duration": "Prototype · 2025",
+      "summary": "Local-first offline classroom platform enabling chat, file sharing, and calls without internet using peer-to-peer connectivity.",
+      "contributions": [
+        "Implemented Google Nearby Connections for offline discovery",
+        "Built WebRTC audio/video call integration",
+        "Designed star-topology message rebroadcasting for classroom networks"
+      ],
+      "technologies": ["Flutter", "WebRTC", "Hive", "Nearby Connections"],
+      "links": { "github": "https://github.com/Sanehaakhtar/edunet-mobile" }
+    }
+  ]
+}

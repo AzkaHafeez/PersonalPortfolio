@@ -1,0 +1,71 @@
+---
+slug: edunet
+title: Edunet
+description: Local-first offline classroom platform for chat, file sharing, and calls without internet.
+role: Flutter Developer
+duration: Prototype build · 2025
+year: "2025"
+featured: true
+tag: Offline-First
+coverImage: /images/projects/edunet-cover.svg
+images:
+  - src: /images/projects/edunet-1.svg
+    alt: Edunet offline classroom session
+  - src: /images/projects/edunet-2.svg
+    alt: Peer-to-peer chat and file sharing
+  - src: /images/projects/edunet-3.svg
+    alt: WebRTC audio and video calls
+  - src: /images/projects/edunet-4.svg
+    alt: Teacher and student role views
+tags:
+  - Flutter
+  - WebRTC
+  - Nearby Connections
+  - Hive
+links:
+  live: ""
+  github: https://github.com/Sanehaakhtar/edunet-mobile
+  caseStudy: true
+technologies:
+  - Flutter
+  - Provider
+  - Hive
+  - nearby_connections
+  - flutter_webrtc
+---
+
+## Overview
+
+Edunet is a local-first, offline classroom platform built with Flutter. It lets teachers and students communicate, share files, and run calls without internet.
+
+The app runs on Android devices that support BLE and Wi-Fi Direct.
+
+## Challenges
+
+Most classroom tools assume stable internet, which breaks down in low-connectivity environments and during on-campus demos.
+
+The challenge was building reliable peer-to-peer communication with clear roles for teachers (hosts) and students (clients).
+
+## Architecture
+
+Google Nearby Connections handles offline device discovery and data transfer. WebRTC powers audio and video calls. A star topology with application-layer routing lets the teacher node rebroadcast student messages, simulating a mesh-like classroom network. Hive provides local data persistence.
+
+## User Flow
+
+Teachers create a classroom session and broadcast their presence. Students discover and join via Nearby Connections. Chat, file sharing, and calls flow through the teacher node, enabling full classroom communication without any internet connection.
+
+## Development Process
+
+Prototyped peer discovery on Android devices, tested WebRTC call quality over local networks, iterated on the star-topology message routing, and validated with on-campus classroom demos.
+
+## Results
+
+Demonstrated reliable offline classroom communication with chat, file sharing, and audio/video calls on BLE and Wi-Fi Direct capable Android devices.
+
+## Technologies
+
+Flutter, Provider, Hive, nearby_connections, and flutter_webrtc.
+
+## Reflection
+
+Offline-first apps require thinking about network topology from day one. I'd explore true mesh networking for larger classrooms and add iOS support with Multipeer Connectivity as a parallel transport layer.

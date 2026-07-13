@@ -41,20 +41,6 @@
                 "live": "",
                 "github": ""
             }
-        },
-        {
-            "id": "theo-of-evolution",
-            "name": "Theo of Evolution",
-            "description": "A scroll-driven storytelling site about the evolution of life with theme selection and immersive scenes.",
-            "tags": ["React", "Vite", "GSAP", "ScrollTrigger"],
-            "year": "2026",
-            "page": "projects/theo-of-evolution.html",
-            "image": null,
-            "featured": true,
-            "links": {
-                "live": "",
-                "github": ""
-            }
         }
     ]
 }
