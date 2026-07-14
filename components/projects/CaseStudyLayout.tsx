@@ -4,7 +4,8 @@ import { getAllProjects } from "@/lib/content";
 import { TechGrid } from "./TechGrid";
 import { ImageGallery } from "./ImageGallery";
 import { AsymmetricBand } from "./AsymmetricBand";
-import { ProjectHeroImage, ProjectTitle } from "./ProjectHeroMotion";
+import { ProjectTitle } from "./ProjectHeroMotion";
+import { CaseStudyDeviceCluster } from "@/components/projects/CaseStudyDeviceCluster";
 import { MinimalHeader } from "@/components/layout/MinimalHeader";
 import { Footer } from "@/components/layout/Footer";
 import { compileSections, splitMdxByH2 } from "@/lib/project-sections";
@@ -19,6 +20,9 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
   const prev = index > 0 ? all[index - 1] : null;
   const next = index >= 0 && index < all.length - 1 ? all[index + 1] : null;
   const gallery = project.images ?? [];
+  const preferPhone =
+    project.slug === "edunet" ||
+    (project.category ?? "").toLowerCase().includes("mobile");
 
   const rawSections = splitMdxByH2(project.content);
   const sections = await compileSections(rawSections);
@@ -28,13 +32,13 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
       <MinimalHeader />
       <main className="min-h-screen bg-bg">
         <article>
-          {/* Asymmetric hero — copy left, cover right */}
+          {/* Asymmetric hero — copy left, device right */}
           <header className="section-padding container-editorial !pb-8 md:!pb-12">
             <Link
-              href="/#projects"
+              href="/projects"
               className="label-caps mb-10 inline-flex items-center gap-2 text-fg-muted transition-colors hover:text-cherry"
             >
-              ← Back to projects
+              ← All projects
             </Link>
 
             <div className="grid items-end gap-12 lg:grid-cols-12 lg:gap-10">
@@ -77,7 +81,7 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                       href={project.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="label-caps border border-obsidian bg-obsidian px-5 py-2.5 text-cream transition-colors hover:border-cherry hover:bg-cherry"
+                      className="label-caps border border-obsidian bg-obsidian px-5 py-2.5 text-cream transition-colors hover:border-cherry hover:bg-cherry hover:text-cream"
                     >
                       View Live ↗
                     </a>
@@ -95,18 +99,15 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                 </div>
               </div>
 
-              {/* Cover offset — larger, sits lower for asymmetry */}
-              <div className="lg:col-span-6 xl:col-span-7 lg:translate-y-6">
-                <div className="aspect-[4/3] overflow-hidden rounded-sm bg-lavender/25 dark:bg-lavender/10 md:aspect-[5/4]">
-                  <ProjectHeroImage
-                    slug={project.slug}
-                    title={project.title}
-                    coverImage={project.coverImage}
-                  />
-                </div>
-                <p className="label-caps mt-3 text-right text-fg-muted">
-                  Featured frame
-                </p>
+              <div className="lg:col-span-6 xl:col-span-7 lg:translate-y-4">
+                <CaseStudyDeviceCluster
+                  title={project.title}
+                  captions={
+                    preferPhone
+                      ? ["Overview", "Classroom", "Mobile View"]
+                      : ["Dashboard", "Management", "Mobile View"]
+                  }
+                />
               </div>
             </div>
           </header>
@@ -118,19 +119,15 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                 key={`${section.title}-${i}`}
                 index={i}
                 title={section.title}
-                image={
-                  gallery.length
-                    ? gallery[i % gallery.length]
-                    : null
-                }
+                image={gallery.length ? gallery[i % gallery.length] : null}
                 imageLeft={i % 2 === 0}
+                preferPhone={preferPhone}
               >
                 {section.content}
               </AsymmetricBand>
             ))}
           </div>
 
-          {/* Extra frames that weren't paired (if more than sections) */}
           {gallery.length > sections.length && (
             <div className="section-padding container-editorial !pt-8">
               <div className="mb-10 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
@@ -139,15 +136,17 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                     More frames
                   </h2>
                   <p className="mt-2 text-sm text-fg-muted">
-                    Additional views from the product.
+                    Additional device views from the product.
                   </p>
                 </div>
               </div>
-              <ImageGallery images={gallery.slice(sections.length)} />
+              <ImageGallery
+                images={gallery.slice(sections.length)}
+                preferPhone={preferPhone}
+              />
             </div>
           )}
 
-          {/* Full gallery strip when we have images but want a denser close */}
           {gallery.length > 0 && gallery.length <= sections.length && (
             <div className="section-padding container-editorial !pt-4">
               <div className="mb-10 grid gap-6 border-t border-border pt-16 md:grid-cols-12">
@@ -156,11 +155,11 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                     Gallery
                   </h2>
                   <p className="mt-3 text-sm text-fg-muted">
-                    All frames — click for fullscreen.
+                    Device frames — click for fullscreen.
                   </p>
                 </div>
                 <div className="md:col-span-8">
-                  <ImageGallery images={gallery} />
+                  <ImageGallery images={gallery} preferPhone={preferPhone} />
                 </div>
               </div>
             </div>

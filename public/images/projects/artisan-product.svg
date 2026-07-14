@@ -1,0 +1,10 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#FFF6EE"/>
+  <rect x="0" y="0" width="390" height="320" fill="#C6C2F2" fill-opacity="0.55"/>
+  <text x="24" y="370" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#262628">Sourdough Loaf</text>
+  <text x="24" y="400" font-family="system-ui,sans-serif" font-size="14" fill="#D86072">★ 4.9 · Crumb &amp; Co.</text>
+  <text x="24" y="560" font-family="system-ui,sans-serif" font-size="14" fill="#6B6864">Inventory: 18 left today</text>
+  <text x="24" y="640" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#262628">Rs 650</text>
+  <rect x="24" y="680" width="342" height="56" rx="28" fill="#262628"/>
+  <text x="140" y="715" font-family="system-ui,sans-serif" font-size="16" fill="#FFF6EE">Order Now</text>
+</svg>

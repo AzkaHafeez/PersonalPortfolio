@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { DeviceFrame } from "@/components/exhibition/DeviceFrame";
 
 interface AsymmetricBandProps {
   index: number;
@@ -10,10 +11,12 @@ interface AsymmetricBandProps {
   image?: { src: string; alt: string } | null;
   /** When true, image sits on the left */
   imageLeft?: boolean;
+  /** Prefer phone chrome for mobile-first case studies */
+  preferPhone?: boolean;
 }
 
 /**
- * Magazine band: image + text, alternating sides for editorial rhythm.
+ * Magazine band: DeviceFrame media + text, alternating sides.
  */
 export function AsymmetricBand({
   index,
@@ -21,25 +24,36 @@ export function AsymmetricBand({
   children,
   image,
   imageLeft = true,
+  preferPhone = false,
 }: AsymmetricBandProps) {
   const [lightbox, setLightbox] = useState(false);
+  const variant = preferPhone
+    ? index % 2 === 0
+      ? "iphone"
+      : "ipad"
+    : index % 2 === 0
+      ? "macbook"
+      : "iphone";
 
   const media = image ? (
     <button
       type="button"
       onClick={() => setLightbox(true)}
-      className="group relative w-full overflow-hidden rounded-sm bg-lavender/20 text-left dark:bg-lavender/10"
+      className="group w-full text-left"
     >
-      <div className="aspect-[4/3] w-full overflow-hidden md:aspect-[5/4] lg:aspect-[4/3]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+      <div
+        className={
+          variant === "iphone" ? "mx-auto max-w-[220px] md:max-w-[240px]" : ""
+        }
+      >
+        <DeviceFrame
           src={image.src}
           alt={image.alt}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          variant={variant}
         />
       </div>
-      <span className="absolute bottom-3 left-3 label-caps rounded bg-obsidian/60 px-2 py-1 text-cream/90 backdrop-blur-sm">
-        {String(index + 1).padStart(2, "0")}
+      <span className="label-caps mt-3 block text-fg-muted">
+        {String(index + 1).padStart(2, "0")} — {image.alt}
       </span>
     </button>
   ) : null;
@@ -53,9 +67,6 @@ export function AsymmetricBand({
         {title}
       </h2>
       <div className="prose-editorial mt-6 max-w-xl">{children}</div>
-      {image && (
-        <p className="mt-6 text-xs text-fg-muted italic">{image.alt}</p>
-      )}
     </div>
   );
 
@@ -75,7 +86,7 @@ export function AsymmetricBand({
         >
           {media && (
             <div
-              className={`w-full shrink-0 lg:w-[52%] ${
+              className={`w-full shrink-0 lg:w-[48%] ${
                 imageLeft ? "lg:-ml-2 xl:-ml-6" : "lg:-mr-2 xl:-mr-6"
               }`}
             >

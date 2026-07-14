@@ -6,8 +6,8 @@ import { CinematicScene } from "./CinematicScene";
 
 /**
  * Cinematic intro landing.
- * Fixed overlay + spacer-only scrub — portfolio content sits AFTER
- * the spacer so when the scene dissolves, the profile header is at top.
+ * Fixed overlay + spacer scrub — portfolio content sits AFTER
+ * the spacer so when the scene dissolves, the hero is at top.
  */
 export function ScrollIntro({ children }: { children: React.ReactNode }) {
   const spacerRef = useRef<HTMLDivElement>(null);
@@ -30,14 +30,13 @@ export function ScrollIntro({ children }: { children: React.ReactNode }) {
         reducedMotion={reducedMotion}
       />
 
-      {/* Scroll scrub distance — no content underneath */}
+      {/* Extended scrub for blueprint → grid → zoom → dissolve */}
       <div
         ref={spacerRef}
-        className="h-[120vh] md:h-[140vh]"
+        className="h-[150vh] md:h-[170vh]"
         aria-hidden="true"
       />
 
-      {/* Portfolio — lands at top when intro ends */}
       {children}
     </>
   );

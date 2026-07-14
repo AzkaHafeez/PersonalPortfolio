@@ -14,8 +14,9 @@
   --color-lavender: #c6c2f2;
   --color-lime: #d6dc82;
   --color-cherry: #d86072;
-  --font-sans: var(--font-space-grotesk);
-  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-biorhyme);
+  --font-serif: var(--font-bricolage);
+  --font-display: var(--font-bricolage);
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -86,11 +87,31 @@
   }
 
   .font-serif-display {
-    font-family: var(--font-playfair), Georgia, serif;
+    font-family: var(--font-bricolage), system-ui, sans-serif;
   }
 
   .label-caps {
-    @apply text-[0.7rem] font-medium uppercase tracking-[0.2em] text-fg-muted;
+    font-family: var(--font-bricolage), system-ui, sans-serif;
+    @apply text-[0.7rem] font-medium uppercase tracking-[0.18em];
+    color: var(--foreground-muted);
+  }
+
+  /* Solid theme buttons: force light text over label-caps muted default */
+  a.bg-cherry,
+  button.bg-cherry,
+  a.bg-obsidian,
+  button.bg-obsidian,
+  a.bg-fg,
+  button.bg-fg,
+  .bg-cherry.label-caps,
+  .bg-obsidian.label-caps,
+  .bg-fg.label-caps {
+    color: var(--color-cream);
+  }
+
+  a.hover\:bg-cherry:hover,
+  button.hover\:bg-cherry:hover {
+    color: var(--color-cream);
   }
 }
 
@@ -115,5 +136,51 @@
 @media (prefers-reduced-motion: no-preference) {
   .animate-film-grain {
     animation: film-grain 8s steps(4) infinite;
+  }
+}
+
+@keyframes exhibition-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes glass-sweep {
+  0% {
+    transform: translateX(-140%) skewX(-12deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  45% {
+    transform: translateX(280%) skewX(-12deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(280%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-glass-beam {
+    animation: glass-sweep 5.5s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-film-grain {
+    animation: none;
+  }
+
+  .animate-glass-beam {
+    animation: none;
   }
 }

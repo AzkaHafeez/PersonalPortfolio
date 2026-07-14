@@ -2,47 +2,57 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { DeviceFrame } from "@/components/exhibition/DeviceFrame";
 
 interface ImageGalleryProps {
   images: { src: string; alt: string }[];
+  preferPhone?: boolean;
 }
 
+const DESKTOP_VARIANTS = ["macbook", "browser", "ipad", "iphone"] as const;
+const MOBILE_VARIANTS = ["iphone", "iphone", "ipad", "iphone"] as const;
+
 /**
- * Editorial 2×2 (or wider) screenshot gallery with fullscreen lightbox.
+ * Device-frame gallery (laptop / phone) with fullscreen lightbox.
  */
-export function ImageGallery({ images }: ImageGalleryProps) {
+export function ImageGallery({
+  images,
+  preferPhone = false,
+}: ImageGalleryProps) {
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const variants = preferPhone ? MOBILE_VARIANTS : DESKTOP_VARIANTS;
 
   if (images.length === 0) return null;
 
   return (
     <>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {images.map((image, index) => (
-          <motion.button
-            key={`${image.src}-${index}`}
-            type="button"
-            className="group relative aspect-[16/10] overflow-hidden rounded-sm bg-lavender/20 text-left dark:bg-lavender/10"
-            onClick={() => setLightbox(index)}
-            whileHover={{ scale: 1.015 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-obsidian/70 to-transparent px-4 pb-3 pt-10">
-              <span className="label-caps text-cream/80">
-                {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+      <div className="mt-8 grid items-end gap-10 sm:grid-cols-2 lg:gap-12">
+        {images.map((image, index) => {
+          const variant = variants[index % variants.length];
+          return (
+            <motion.button
+              key={`${image.src}-${index}`}
+              type="button"
+              className={`group text-left ${
+                variant === "iphone" ? "mx-auto w-full max-w-[200px]" : "w-full"
+              }`}
+              onClick={() => setLightbox(index)}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <DeviceFrame
+                src={image.src}
+                alt={image.alt}
+                variant={variant}
+              />
+              <span className="label-caps mt-4 block text-fg-muted">
+                {String(index + 1).padStart(2, "0")} /{" "}
+                {String(images.length).padStart(2, "0")}
               </span>
-              <span className="mt-1 block truncate text-sm text-cream">
-                {image.alt}
-              </span>
-            </span>
-          </motion.button>
-        ))}
+              <span className="mt-1 block text-sm text-fg">{image.alt}</span>
+            </motion.button>
+          );
+        })}
       </div>
 
       <AnimatePresence>
@@ -75,7 +85,9 @@ export function ImageGallery({ images }: ImageGalleryProps) {
                   type="button"
                   className="label-caps text-cream/60 hover:text-cream disabled:opacity-30"
                   disabled={lightbox === 0}
-                  onClick={() => setLightbox((i) => (i !== null && i > 0 ? i - 1 : i))}
+                  onClick={() =>
+                    setLightbox((i) => (i !== null && i > 0 ? i - 1 : i))
+                  }
                 >
                   ← Prev
                 </button>

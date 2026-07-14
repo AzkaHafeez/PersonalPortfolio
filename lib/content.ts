@@ -32,6 +32,12 @@ function readMdxFiles<T extends { slug: string }>(
   return sortFn ? items.sort(sortFn) : items;
 }
 
+export const HOME_PROJECT_SLUGS = [
+  "artisan-bakeries",
+  "aura-pro",
+  "edunet",
+] as const;
+
 export function getAllProjects(): Project[] {
   const projects = readMdxFiles<ProjectFrontmatter>(
     path.join(contentDir, "projects"),
@@ -40,13 +46,25 @@ export function getAllProjects(): Project[] {
   return projects;
 }
 
+export function getHomeProjects(): Project[] {
+  const all = getAllProjects();
+  return HOME_PROJECT_SLUGS.map((slug) =>
+    all.find((p) => p.slug === slug)
+  ).filter((p): p is Project => Boolean(p));
+}
+
+export function getArchiveProjects(): Project[] {
+  const home = new Set<string>(HOME_PROJECT_SLUGS);
+  return getAllProjects().filter((p) => !home.has(p.slug));
+}
+
 export function getProjectBySlug(slug: string): Project | null {
   const projects = getAllProjects();
   return projects.find((p) => p.slug === slug) ?? null;
 }
 
 export function getFeaturedProjects(): Project[] {
-  return getAllProjects().filter((p) => p.featured);
+  return getHomeProjects();
 }
 
 export function getAllWriting(): WritingArticle[] {

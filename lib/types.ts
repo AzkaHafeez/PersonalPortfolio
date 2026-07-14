@@ -4,6 +4,20 @@ export interface ProjectLinks {
   caseStudy?: boolean;
 }
 
+export type DeviceVariant = "macbook" | "ipad" | "iphone" | "browser";
+
+/** Explicit home-room image slots — set each URL yourself; nothing auto-fills. */
+export interface ProjectPlaceholders {
+  /** Main hero device (laptop / browser) */
+  primary?: string | null;
+  /** Secondary overlapping device (phone / tablet) */
+  secondary?: string | null;
+  /** Exhibition wall frames, in order */
+  wall?: { src: string; alt: string; variant?: DeviceVariant }[];
+  /** Info card image stuck to the top of the wall card */
+  card?: string | null;
+}
+
 export interface ProjectFrontmatter {
   slug: string;
   title: string;
@@ -13,7 +27,14 @@ export interface ProjectFrontmatter {
   year: string;
   featured: boolean;
   tag?: string;
+  category?: string;
+  problem?: string;
+  solution?: string;
+  process?: string;
+  outcome?: string;
   coverImage?: string | null;
+  /** Optional named home slots — preferred over auto cover/images mapping */
+  placeholders?: ProjectPlaceholders;
   tags: string[];
   links: ProjectLinks;
   technologies: string[];

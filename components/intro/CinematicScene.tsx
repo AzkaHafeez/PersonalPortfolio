@@ -6,6 +6,7 @@ import { AbstractSphere } from "./AbstractSphere";
 import { StarField } from "./StarField";
 import { FilmGrain } from "./FilmGrain";
 import { CornerAnnotations } from "./CornerAnnotations";
+import { BlueprintOverlay } from "./BlueprintOverlay";
 
 interface CinematicSceneProps {
   scrollProgress: MotionValue<number>;
@@ -14,6 +15,7 @@ interface CinematicSceneProps {
 
 /**
  * Themed cinematic landing — Obsidian / Cream / Lavender / Lime / Cherry.
+ * Expanded with blueprint lines, grid fade, and soft zoom toward the hero.
  */
 export function CinematicScene({
   scrollProgress,
@@ -21,37 +23,42 @@ export function CinematicScene({
 }: CinematicSceneProps) {
   const sceneOpacity = useTransform(
     scrollProgress,
-    [0, 0.4, 0.7, 0.9, 1],
-    [1, 1, 0.7, 0.2, 0]
+    [0, 0.45, 0.7, 0.88, 1],
+    [1, 1, 0.75, 0.25, 0]
   );
+
+  const sceneScale = useTransform(scrollProgress, [0, 0.5, 1], [1, 1.02, 1.08]);
 
   const nameOpacity = useTransform(
     scrollProgress,
-    [0, 0.35, 0.6, 0.85],
-    [1, 1, 0.45, 0]
+    [0, 0.3, 0.55, 0.78],
+    [1, 1, 0.5, 0]
   );
 
-  const nameY = useTransform(scrollProgress, [0, 0.4, 1], ["0vh", "-2vh", "-12vh"]);
-  const nameScale = useTransform(scrollProgress, [0, 1], [1, 0.88]);
+  const nameY = useTransform(scrollProgress, [0, 0.4, 1], ["0vh", "-3vh", "-14vh"]);
+  const nameScale = useTransform(scrollProgress, [0, 0.5, 1], [1, 0.96, 0.86]);
+  const nameLetterSpacing = useTransform(
+    scrollProgress,
+    [0, 0.4, 0.7],
+    ["-0.02em", "0.04em", "0.08em"]
+  );
 
   const annotationsOpacity = useTransform(
     scrollProgress,
-    [0, 0.3, 0.55],
-    [1, 0.6, 0]
+    [0, 0.25, 0.5],
+    [1, 0.55, 0]
   );
 
-  const veilOpacity = useTransform(scrollProgress, [0.35, 0.75, 1], [0, 0.4, 0.8]);
+  const veilOpacity = useTransform(scrollProgress, [0.5, 0.78, 1], [0, 0.35, 0.7]);
 
   return (
     <motion.div
       className="pointer-events-none fixed inset-0 z-50 overflow-hidden"
-      style={{ opacity: sceneOpacity }}
+      style={{ opacity: sceneOpacity, scale: reducedMotion ? 1 : sceneScale }}
       aria-hidden="true"
     >
-      {/* Obsidian base */}
       <div className="absolute inset-0 bg-obsidian" />
 
-      {/* Lavender atmosphere + soft cream edge */}
       <div
         className="absolute inset-0"
         style={{
@@ -75,10 +82,11 @@ export function CinematicScene({
         }}
       />
 
-      {/* Thin lime accent edge — whisper only */}
       <div
         className="absolute left-0 top-0 h-full w-px opacity-20"
-        style={{ background: "linear-gradient(to bottom, transparent, #d6dc82, transparent)" }}
+        style={{
+          background: "linear-gradient(to bottom, transparent, #d6dc82, transparent)",
+        }}
       />
 
       <AbstractSphere
@@ -87,6 +95,8 @@ export function CinematicScene({
       />
 
       <StarField reducedMotion={reducedMotion} />
+
+      {!reducedMotion && <BlueprintOverlay scrollProgress={scrollProgress} />}
 
       <FilmGrain reducedMotion={reducedMotion} />
 
@@ -101,13 +111,13 @@ export function CinematicScene({
             opacity: nameOpacity,
             y: nameY,
             scale: nameScale,
+            letterSpacing: nameLetterSpacing,
           }}
         >
           {siteConfig.introName}
         </motion.h1>
       </div>
 
-      {/* Veil → Obsidian (not pure black) before reveal */}
       <motion.div
         className="absolute inset-0 bg-obsidian"
         style={{ opacity: veilOpacity }}

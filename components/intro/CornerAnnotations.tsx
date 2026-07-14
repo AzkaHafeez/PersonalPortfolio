@@ -1,7 +1,7 @@
 import { introAnnotations } from "@/content/site";
 
 /**
- * Magazine-style corner annotations — Cream with Cherry/Lime whispers.
+ * Magazine-style corner annotations — Cream with Lime whisper.
  */
 export function CornerAnnotations() {
   const base =
@@ -9,16 +9,6 @@ export function CornerAnnotations() {
 
   return (
     <div className="pointer-events-none absolute inset-0 z-10 p-6 sm:p-8 md:p-10 lg:p-12">
-      <p
-        className={`absolute left-6 top-6 hidden text-cream/40 sm:left-8 sm:top-8 sm:block md:left-10 md:top-10 lg:left-12 lg:top-12 ${base}`}
-      >
-        {introAnnotations.topLeft}
-      </p>
-      <p
-        className={`absolute right-6 top-6 text-right text-cream/40 sm:right-8 sm:top-8 md:right-10 md:top-10 lg:right-12 lg:top-12 ${base}`}
-      >
-        <span className="text-cherry/50">{introAnnotations.topRight}</span>
-      </p>
       <p
         className={`absolute bottom-6 left-6 hidden text-cream/40 md:bottom-10 md:left-10 md:block lg:bottom-12 lg:left-12 ${base}`}
       >

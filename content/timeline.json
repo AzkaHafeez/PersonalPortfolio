@@ -8,27 +8,21 @@
     },
     {
       "year": "2025",
-      "type": "education",
-      "title": "Computer Science Studies",
-      "description": "Deepening expertise in AI, data science, and cybersecurity fundamentals."
+      "type": "research",
+      "title": "NCAI — AI/ML Research Intern",
+      "description": "Applied AI/ML research internship focused on models, evaluation, and practical pipelines."
     },
     {
       "year": "2025",
-      "type": "project",
-      "title": "EventHub & Edunet",
-      "description": "Team projects for university event management and offline classroom communication."
+      "type": "leadership",
+      "title": "AIHive — Frontend to Leadership",
+      "description": "Frontend Developer, then Deputy Director and Graphics Executive at AIHive."
     },
     {
       "year": "2026",
       "type": "project",
       "title": "AURA Pro",
       "description": "Shipped editorial product showcase with interactive 3D and scroll-led storytelling."
-    },
-    {
-      "year": "2026",
-      "type": "leadership",
-      "title": "Freelance Product Builder",
-      "description": "Positioning as a product builder for startups, clients, and internship opportunities."
     }
   ]
 }

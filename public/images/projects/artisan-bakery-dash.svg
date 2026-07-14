@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#FFF6EE"/>
+  <rect x="0" y="0" width="220" height="900" fill="#262628"/>
+  <text x="32" y="56" font-family="Georgia,serif" font-size="22" fill="#FFF6EE">Bakery</text>
+  <text x="260" y="64" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#262628">Dashboard</text>
+  <rect x="260" y="140" width="280" height="120" rx="20" fill="#F3EBE3"/>
+  <text x="288" y="230" font-family="Georgia,serif" font-size="36" font-weight="700" fill="#262628">47</text>
+  <text x="288" y="190" font-family="system-ui,sans-serif" font-size="13" fill="#6B6864">Orders today</text>
+  <rect x="560" y="140" width="280" height="120" rx="20" fill="#C6C2F2" fill-opacity="0.4"/>
+  <text x="588" y="230" font-family="Georgia,serif" font-size="36" font-weight="700" fill="#262628">Rs 86k</text>
+  <rect x="260" y="360" width="880" height="72" rx="14" fill="#F3EBE3"/>
+  <text x="288" y="404" font-family="system-ui,sans-serif" font-size="15" fill="#262628">#1842 · Custom cake · Preparing</text>
+</svg>

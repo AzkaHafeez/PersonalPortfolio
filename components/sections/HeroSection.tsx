@@ -1,63 +1,83 @@
-import { aboutContent, siteConfig } from "@/content/site";
+"use client";
+
+import { siteConfig } from "@/content/site";
 import { SectionShell } from "@/components/layout/SectionShell";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
 export function HeroSection() {
   return (
-    <SectionShell id="hero" className="!pb-16 !pt-20 md:!pt-28">
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-8">
-          <FadeIn>
-            <p className="label-caps mb-6">{siteConfig.availability}</p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1 className="font-serif-display text-balance text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.05] tracking-tight">
-              {siteConfig.tagline}
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="mt-8 space-y-1">
-              {siteConfig.sublines.map((line) => (
-                <p key={line} className="text-lg text-fg-muted md:text-xl">
-                  {line}
-                </p>
-              ))}
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <p className="mt-10 max-w-2xl text-base leading-relaxed text-fg-muted md:text-lg">
-              {siteConfig.description}
-            </p>
-          </FadeIn>
-        </div>
+    <SectionShell
+      id="home"
+      className="relative z-10 flex min-h-[100svh] flex-col justify-center !pb-24 !pt-28 md:!pt-32"
+    >
+      <div className="relative max-w-5xl">
+        <FadeIn>
+          <p className="label-caps mb-8 text-cherry">{siteConfig.availability}</p>
+        </FadeIn>
 
-        <div className="lg:col-span-4">
-          <FadeIn delay={0.2} className="space-y-8 border-t border-border pt-8 lg:border-t-0 lg:pt-0">
-            <div>
-              <p className="label-caps mb-2">Current role</p>
-              <p className="text-sm md:text-base">{siteConfig.role}</p>
-            </div>
-            <div>
-              <p className="label-caps mb-2">Focus</p>
-              <p className="text-sm text-fg-muted md:text-base">{siteConfig.focus}</p>
-            </div>
-            <div>
-              <p className="label-caps mb-2">Location</p>
-              <p className="text-sm md:text-base">{siteConfig.location}</p>
-            </div>
-            <div>
-              <p className="label-caps mb-2">Technologies</p>
-              <p className="text-sm text-fg-muted md:text-base">
-                {siteConfig.stack.join(" · ")}
+        <FadeIn delay={0.08}>
+          <h1 className="font-serif-display text-[clamp(2.75rem,9vw,7.5rem)] font-bold leading-[0.95] tracking-tight">
+            {siteConfig.fullName.toUpperCase()}
+          </h1>
+        </FadeIn>
+
+        <FadeIn delay={0.16}>
+          <div className="mt-10 space-y-2 md:mt-12">
+            {siteConfig.sublines.map((line) => (
+              <p
+                key={line}
+                className="font-serif-display text-xl italic leading-snug text-fg-muted md:text-2xl lg:text-3xl"
+              >
+                {line}
               </p>
-            </div>
-            <div className="hidden lg:block">
-              <p className="font-serif-display text-right text-lg italic text-fg-muted">
-                &ldquo;{siteConfig.quote}&rdquo;
-              </p>
-            </div>
-          </FadeIn>
-        </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.24}>
+          <p className="mt-10 max-w-2xl text-sm leading-relaxed text-fg-muted md:text-base">
+            {siteConfig.roles.join(" · ")}
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={0.32}>
+          <div className="mt-12 flex flex-wrap items-center gap-4 md:gap-6">
+            <MagneticButton
+              href="#projects"
+              className="label-caps border border-cherry bg-cherry px-6 py-3 !text-cream shadow-[0_12px_28px_-14px_rgba(216,96,114,0.85)] transition-opacity hover:opacity-90"
+            >
+              View Projects
+            </MagneticButton>
+            <MagneticButton
+              href="/projects"
+              className="label-caps border border-border px-6 py-3 transition-colors hover:border-cherry hover:text-cherry"
+            >
+              View all projects
+            </MagneticButton>
+            <MagneticButton
+              href="#contact"
+              className="label-caps border border-border px-6 py-3 transition-colors hover:border-fg"
+            >
+              Contact Me
+            </MagneticButton>
+            <MagneticButton
+              href="/resume.pdf"
+              external
+              className="label-caps border-b border-border pb-1 text-fg-muted transition-colors hover:border-fg hover:text-fg"
+            >
+              Resume ↓
+            </MagneticButton>
+          </div>
+        </FadeIn>
+      </div>
+
+      {/* Hero-local measurement accent */}
+      <div
+        className="pointer-events-none absolute bottom-8 right-6 hidden text-[10px] uppercase tracking-[0.3em] text-fg-muted/50 md:block"
+        aria-hidden="true"
+      >
+        01 — Entrance
       </div>
     </SectionShell>
   );

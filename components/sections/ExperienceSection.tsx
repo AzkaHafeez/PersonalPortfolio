@@ -1,76 +1,113 @@
+"use client";
+
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import type { ExperienceEntry } from "@/lib/types";
-import { SectionShell } from "@/components/layout/SectionShell";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
 
-export function ExperienceSection({ entries }: { entries: ExperienceEntry[] }) {
-  return (
-    <SectionShell id="experience">
-      <SectionLabel number="03" label="Experience" />
+function TimelineMilestone({
+  entry,
+  index,
+}: {
+  entry: ExperienceEntry;
+  index: number;
+}) {
+  const prefersReducedMotion = useReducedMotion();
 
-      <FadeIn className="mt-8">
-        <h2 className="font-serif-display text-3xl font-bold tracking-tight md:text-4xl">
-          Building products, not just writing code
+  return (
+    <motion.article
+      className="relative grid gap-6 pl-10 md:grid-cols-12 md:gap-8 md:pl-16"
+      initial={prefersReducedMotion ? false : { opacity: 0, x: -24 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.08,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+    >
+      <span
+        className="absolute left-[-5px] top-2 h-3 w-3 rounded-full border-2 border-fg bg-bg md:left-[-1px]"
+        aria-hidden
+      />
+
+      <div className="md:col-span-4">
+        <p className="label-caps">{entry.duration}</p>
+        <h3 className="font-serif-display mt-2 text-3xl font-bold md:text-4xl">
+          {entry.company}
+        </h3>
+        <p className="mt-2 text-base text-fg-muted md:text-lg">{entry.role}</p>
+      </div>
+
+      <div className="md:col-span-5">
+        <p className="text-base leading-relaxed text-fg-muted">{entry.summary}</p>
+        <ul className="mt-6 space-y-2">
+          {entry.contributions.map((c) => (
+            <li key={c} className="text-sm text-fg-muted">
+              — {c}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="md:col-span-3">
+        <p className="label-caps mb-3">Focus</p>
+        <p className="text-sm text-fg-muted">{entry.technologies.join(" · ")}</p>
+      </div>
+    </motion.article>
+  );
+}
+
+export function ExperienceSection({ entries }: { entries: ExperienceEntry[] }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 80%", "end 20%"],
+  });
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <section
+      id="experience"
+      className="section-padding container-editorial relative z-10 scroll-mt-20"
+    >
+      <FadeIn>
+        <p className="label-caps mb-6 text-cherry">04 — Experience</p>
+        <h2 className="font-serif-display max-w-3xl text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.05] tracking-tight">
+          Path through the field
         </h2>
+        <p className="mt-6 max-w-xl text-fg-muted">
+          Research, product, leadership, and craft — milestones that shaped how
+          I build.
+        </p>
       </FadeIn>
 
-      <div className="mt-16 space-y-0">
-        {entries.map((entry, index) => (
-          <FadeIn key={entry.id} delay={index * 0.05}>
-            <article className="grid gap-6 border-t border-border py-12 md:grid-cols-12 md:gap-8">
-              <div className="md:col-span-3">
-                <p className="label-caps">{entry.duration}</p>
-                <h3 className="font-serif-display mt-2 text-2xl font-bold md:text-3xl">
-                  {entry.company}
-                </h3>
-                <p className="mt-1 text-sm text-fg-muted">{entry.role}</p>
-              </div>
+      <div ref={ref} className="relative mt-20">
+        <div
+          className="absolute bottom-0 left-[6px] top-0 w-px bg-border md:left-[11px]"
+          aria-hidden
+        />
+        <motion.div
+          className="absolute left-[6px] top-0 w-px origin-top bg-fg md:left-[11px]"
+          style={{
+            scaleY: prefersReducedMotion ? 1 : lineScale,
+            height: "100%",
+          }}
+          aria-hidden
+        />
 
-              <div className="md:col-span-6">
-                <p className="text-base leading-relaxed text-fg-muted">
-                  {entry.summary}
-                </p>
-                <ul className="mt-6 space-y-2">
-                  {entry.contributions.map((c) => (
-                    <li key={c} className="text-sm text-fg-muted">
-                      — {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="md:col-span-3">
-                <p className="label-caps mb-3">Technologies</p>
-                <p className="text-sm text-fg-muted">
-                  {entry.technologies.join(" · ")}
-                </p>
-                <div className="mt-4 flex gap-4">
-                  {entry.links?.live && (
-                    <a
-                      href={entry.links.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="label-caps border-b border-border pb-0.5 hover:border-fg"
-                    >
-                      Live ↗
-                    </a>
-                  )}
-                  {entry.links?.github && (
-                    <a
-                      href={entry.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="label-caps border-b border-border pb-0.5 hover:border-fg"
-                    >
-                      GitHub ↗
-                    </a>
-                  )}
-                </div>
-              </div>
-            </article>
-          </FadeIn>
-        ))}
+        <div className="space-y-16 md:space-y-24">
+          {entries.map((entry, index) => (
+            <TimelineMilestone key={entry.id} entry={entry} index={index} />
+          ))}
+        </div>
       </div>
-    </SectionShell>
+    </section>
   );
 }

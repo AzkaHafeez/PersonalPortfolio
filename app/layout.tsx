@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Space_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, BioRhyme } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { siteConfig } from "@/content/site";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-bricolage",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const bioRhyme = BioRhyme({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-biorhyme",
   display: "swap",
+  weight: ["300", "400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${playfair.variable} min-h-screen`}
+        className={`${bricolage.variable} ${bioRhyme.variable} min-h-screen`}
       >
         <a
           href="#main-content"
