@@ -6,6 +6,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { DeviceVariant, Project } from "@/lib/types";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { DeviceFrame } from "@/components/exhibition/DeviceFrame";
+import { EscapingLaptopFrame } from "@/components/exhibition/WebsiteScrollFrame";
+import { BrowserPhoneSplit } from "@/components/exhibition/BrowserPhoneSplit";
 import { EdunetMobileShowcase } from "@/components/exhibition/EdunetMobileShowcase";
 import { EventHubShowcase } from "@/components/exhibition/EventHubShowcase";
 
@@ -111,8 +113,9 @@ const WALL_SPANS = [
 
 /**
  * Exhibition wall.
- * If `placeholders` is set: only uses `wall` + `card` URLs (no auto-fill).
- * Otherwise: legacy fallback to `images[]` for older projects.
+ * If `placeholders` is set: only those URLs (browserPhone / wall / card).
+ * Never falls back to case-study `images[]` — keeps home and case assets separate.
+ * Otherwise (legacy): uses `images[]`.
  */
 function ExhibitionWall({ project }: { project: Project }) {
   const explicit = project.placeholders;
@@ -124,25 +127,53 @@ function ExhibitionWall({ project }: { project: Project }) {
         variant: undefined as DeviceVariant | undefined,
       }));
   const card = explicit ? (explicit.card ?? null) : null;
+  const combo = explicit?.browserPhone ?? null;
+  const hasCombo = Boolean(combo?.browser && combo?.phone);
 
-  if (wall.length === 0 && !card) return null;
+  if (wall.length === 0 && !card && !hasCombo) return null;
 
   return (
     <FadeIn className="mt-20">
       <p className="label-caps mb-8">Exhibition Wall</p>
       <div className="grid gap-4 md:grid-cols-12 md:gap-5">
+        {hasCombo && combo && (
+          <div className="md:col-span-8 lg:col-span-7">
+            <BrowserPhoneSplit
+              browserSrc={combo.browser}
+              phoneSrc={combo.phone}
+              browserAlt={combo.browserAlt ?? `${project.title} — desktop`}
+              phoneAlt={combo.phoneAlt ?? `${project.title} — mobile`}
+            />
+          </div>
+        )}
+
         {wall.map((image, i) => (
-          <div key={`${image.src}-${i}`} className={WALL_SPANS[i % WALL_SPANS.length]}>
+          <div
+            key={`${image.src}-${i}`}
+            className={
+              hasCombo
+                ? "md:col-span-6"
+                : WALL_SPANS[i % WALL_SPANS.length]
+            }
+          >
             <DeviceFrame
               src={image.src}
               alt={image.alt}
               variant={
-                image.variant ?? WALL_FALLBACK_VARIANTS[i % WALL_FALLBACK_VARIANTS.length]
+                image.variant ??
+                WALL_FALLBACK_VARIANTS[i % WALL_FALLBACK_VARIANTS.length]
               }
             />
           </div>
         ))}
-        <div className="flex flex-col overflow-hidden border border-border bg-bg-muted/40 md:col-span-12 lg:col-span-4 lg:col-start-9 lg:row-start-1">
+
+        <div
+          className={`flex flex-col overflow-hidden border border-border bg-bg-muted/40 md:col-span-12 ${
+            hasCombo
+              ? "lg:col-span-5 lg:col-start-8 lg:row-start-1"
+              : "lg:col-span-4 lg:col-start-9 lg:row-start-1"
+          }`}
+        >
           {card && (
             <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-bg-muted">
               <Image
@@ -198,6 +229,36 @@ function ContentColumn({
   );
 }
 
+/** Artisan: laptop + escaping tall page left, details right (devices on Exhibition Wall). */
+function LayoutArtisanScroll({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
+  const ph = getPlaceholders(project);
+  // Homepage-only: never read case-study images[]
+  const scrollSrc = ph.scroll ?? null;
+
+  return (
+    <div className="grid items-start gap-16 lg:grid-cols-2">
+      <FadeIn>
+        {scrollSrc && (
+          <EscapingLaptopFrame
+            src={scrollSrc}
+            alt={`${project.title} full-page design`}
+            priority
+          />
+        )}
+      </FadeIn>
+      <FadeIn delay={0.1}>
+        <ContentColumn project={project} index={index} />
+      </FadeIn>
+    </div>
+  );
+}
+
 function LayoutSplitLeft({
   project,
   index,
@@ -206,11 +267,13 @@ function LayoutSplitLeft({
   index: number;
 }) {
   const ph = getPlaceholders(project);
-  const cover =
-    ph.primary ?? project.coverImage ?? project.images?.[0]?.src ?? null;
-  const phone =
-    ph.secondary ??
-    (project.placeholders ? null : project.images?.[1]?.src ?? null);
+  const explicit = Boolean(project.placeholders);
+  const cover = explicit
+    ? (ph.primary ?? null)
+    : (ph.primary ?? project.coverImage ?? project.images?.[0]?.src ?? null);
+  const phone = explicit
+    ? (ph.secondary ?? null)
+    : (ph.secondary ?? project.images?.[1]?.src ?? null);
 
   return (
     <div className="grid items-start gap-16 lg:grid-cols-2">
@@ -241,11 +304,13 @@ function LayoutSplitRight({
   index: number;
 }) {
   const ph = getPlaceholders(project);
-  const cover =
-    ph.primary ?? project.coverImage ?? project.images?.[0]?.src ?? null;
-  const tablet =
-    ph.secondary ??
-    (project.placeholders ? null : project.images?.[1]?.src ?? null);
+  const explicit = Boolean(project.placeholders);
+  const cover = explicit
+    ? (ph.primary ?? null)
+    : (ph.primary ?? project.coverImage ?? project.images?.[0]?.src ?? null);
+  const tablet = explicit
+    ? (ph.secondary ?? null)
+    : (ph.secondary ?? project.images?.[1]?.src ?? null);
 
   return (
     <div className="grid items-start gap-16 lg:grid-cols-2">
@@ -416,6 +481,21 @@ function ProjectRoom({ project, index }: { project: Project; index: number }) {
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       >
         <EventHubShowcase project={project} index={index} />
+      </motion.article>
+    );
+  }
+
+  if (project.slug === "artisan-bakeries") {
+    return (
+      <motion.article
+        className="border-t border-border py-24 first:border-t-0 md:py-32"
+        initial={prefersReducedMotion ? false : { opacity: 0, y: 40 }}
+        whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <LayoutArtisanScroll project={project} index={index} />
+        <ExhibitionWall project={project} />
       </motion.article>
     );
   }

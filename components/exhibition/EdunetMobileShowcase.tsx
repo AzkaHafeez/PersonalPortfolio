@@ -6,37 +6,38 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { FloatingPhone } from "@/components/exhibition/FloatingPhone";
 import { PhoneScene } from "@/components/exhibition/PhoneScene";
 
+/** Homepage-only assets — never reuse /images/projects/case/* here */
 const SCREENS = {
   dashboard: {
-    src: "/images/projects/edunet-dashboard.svg",
+    src: "/images/projects/home/edunet-dashboard.svg",
     alt: "Classroom Dashboard",
   },
   list: {
-    src: "/images/projects/edunet-list.svg",
+    src: "/images/projects/home/edunet-list.svg",
     alt: "Classroom List",
   },
   chat: {
-    src: "/images/projects/edunet-chat.svg",
+    src: "/images/projects/home/edunet-chat.svg",
     alt: "Chat",
   },
   home: {
-    src: "/images/projects/edunet-home.svg",
+    src: "/images/projects/home/edunet-home.svg",
     alt: "Home",
   },
   videocall: {
-    src: "/images/projects/edunet-videocall.svg",
+    src: "/images/projects/home/edunet-videocall.svg",
     alt: "Video Call",
   },
   settings: {
-    src: "/images/projects/edunet-settings.svg",
+    src: "/images/projects/home/edunet-settings.svg",
     alt: "Settings",
   },
   join: {
-    src: "/images/projects/edunet-join.svg",
+    src: "/images/projects/home/edunet-join.svg",
     alt: "Join Classroom",
   },
   notes: {
-    src: "/images/projects/edunet-notes.svg",
+    src: "/images/projects/home/edunet-notes.svg",
     alt: "Notes",
   },
 } as const;

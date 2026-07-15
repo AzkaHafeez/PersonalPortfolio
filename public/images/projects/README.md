@@ -1,26 +1,38 @@
 # Project images
 
-Each case study expects **at least 4 screenshots** plus a cover:
+**Home and case study assets use separate folders so they never get mixed.**
 
 ```
-{slug}-cover.svg|.jpg|.png   → coverImage
-{slug}-1 … {slug}-4          → images[] gallery (2×2)
+public/images/projects/
+  home/   → homepage exhibition only (`placeholders`, coverImage, EduNet SCREENS)
+  case/   → case study pages only (`images`, `escapeDuo`)
 ```
 
-Example frontmatter in `content/projects/{slug}.mdx`:
+## Homepage (`placeholders`)
+
+Edit URLs under `/images/projects/home/…` in each project’s MDX:
 
 ```yaml
-coverImage: /images/projects/eventhub-cover.jpg
-images:
-  - src: /images/projects/eventhub-1.jpg
-    alt: Dashboard overview
-  - src: /images/projects/eventhub-2.jpg
-    alt: Societies list
-  - src: /images/projects/eventhub-3.jpg
-    alt: Event detail
-  - src: /images/projects/eventhub-4.jpg
-    alt: Admin panel
+coverImage: /images/projects/home/{slug}-….ext
+placeholders:
+  scroll: /images/projects/home/…
+  primary: /images/projects/home/…
+  # etc.
 ```
 
-Placeholder SVGs ship for every project so galleries render immediately.
-Replace them with real screenshots using the same filenames (or update the paths in MDX).
+EduNet screens are also hardcoded in `EdunetMobileShowcase` under `/images/projects/home/`.
+
+## Case study (`images` + `escapeDuo`)
+
+Edit URLs under `/images/projects/case/…`:
+
+```yaml
+escapeDuo:
+  left: /images/projects/case/{slug}-escape-left.ext
+  right: /images/projects/case/{slug}-escape-right.ext
+images:
+  - src: /images/projects/case/{slug}-1.ext
+    alt: …
+```
+
+Replace a file in `home/` or `case/` independently — the other surface stays unchanged.

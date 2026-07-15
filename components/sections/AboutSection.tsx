@@ -1,6 +1,6 @@
 "use client";
 
-import { aboutContent, siteConfig } from "@/content/site";
+import { aboutContent } from "@/content/site";
 import { SectionShell } from "@/components/layout/SectionShell";
 import { FadeIn } from "@/components/ui/FadeIn";
 
@@ -62,41 +62,23 @@ export function AboutSection() {
 
         <aside className="space-y-12 lg:col-span-4 lg:pt-24">
           <FadeIn delay={0.15}>
-            <div className="relative flex aspect-[4/5] max-w-xs items-end justify-start overflow-hidden border border-border bg-bg-muted p-6">
-              {siteConfig.portrait ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={siteConfig.portrait}
-                  alt={siteConfig.fullName}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <span className="font-serif-display text-[6rem] font-bold leading-none text-fg/10">
-                  A
-                </span>
-              )}
-              <div className="relative z-10">
-                <p className="label-caps">Portrait</p>
-                <p className="mt-1 font-serif-display text-lg">{siteConfig.fullName}</p>
+            <div>
+              <p className="label-caps mb-8 text-cherry">Timeline fragments</p>
+              <div className="flex flex-col">
+                {aboutContent.journey.map((item) => (
+                  <div
+                    key={item.year}
+                    className="border-t border-border py-6 first:border-t first:pt-6 last:pb-0"
+                  >
+                    <span className="font-serif-display text-3xl font-bold tracking-tight md:text-4xl">
+                      {item.year}
+                    </span>
+                    <p className="mt-3 max-w-sm text-sm leading-relaxed text-fg-muted md:text-base">
+                      {item.event}
+                    </p>
+                  </div>
+                ))}
               </div>
-              {/* Blueprint corner marks */}
-              <span
-                className="absolute left-2 top-2 h-3 w-3 border-l border-t border-fg/30"
-                aria-hidden
-              />
-              <span
-                className="absolute right-2 top-2 h-3 w-3 border-r border-t border-fg/30"
-                aria-hidden
-              />
-              <span
-                className="absolute bottom-2 left-2 h-3 w-3 border-b border-l border-fg/30"
-                aria-hidden
-              />
-              <span
-                className="absolute bottom-2 right-2 h-3 w-3 border-b border-r border-fg/30"
-                aria-hidden
-              />
             </div>
           </FadeIn>
 
@@ -129,18 +111,6 @@ export function AboutSection() {
           </FadeIn>
         </aside>
       </div>
-
-      <FadeIn delay={0.2} className="mt-24">
-        <p className="label-caps mb-8">Timeline fragments</p>
-        <div className="grid gap-8 md:grid-cols-3">
-          {aboutContent.journey.map((item) => (
-            <div key={item.year} className="border-t border-border pt-6">
-              <span className="font-serif-display text-3xl font-bold">{item.year}</span>
-              <p className="mt-3 text-sm leading-relaxed text-fg-muted">{item.event}</p>
-            </div>
-          ))}
-        </div>
-      </FadeIn>
     </SectionShell>
   );
 }

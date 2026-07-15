@@ -10,8 +10,17 @@ export type DeviceVariant = "macbook" | "ipad" | "iphone" | "browser";
 export interface ProjectPlaceholders {
   /** Main hero device (laptop / browser) */
   primary?: string | null;
-  /** Secondary overlapping device (phone / tablet) */
+  /** Secondary overlapping device (phone / tablet) in hero layouts */
   secondary?: string | null;
+  /** Tall full-page escaping laptop mockup (left of copy) */
+  scroll?: string | null;
+  /** Exhibition wall: overlapping browser + phone cluster */
+  browserPhone?: {
+    browser: string;
+    phone: string;
+    browserAlt?: string;
+    phoneAlt?: string;
+  } | null;
   /** Exhibition wall frames, in order */
   wall?: { src: string; alt: string; variant?: DeviceVariant }[];
   /** Info card image stuck to the top of the wall card */
@@ -33,11 +42,19 @@ export interface ProjectFrontmatter {
   process?: string;
   outcome?: string;
   coverImage?: string | null;
-  /** Optional named home slots — preferred over auto cover/images mapping */
+  /** Optional named home slots — paths under /images/projects/home/* */
   placeholders?: ProjectPlaceholders;
+  /** Case study dual escaping MacBooks — paths under /images/projects/case/* */
+  escapeDuo?: {
+    left: string;
+    right: string;
+    leftAlt?: string;
+    rightAlt?: string;
+  } | null;
   tags: string[];
   links: ProjectLinks;
   technologies: string[];
+  /** Case study gallery — paths under /images/projects/case/* (do not reuse home URLs) */
   images?: { src: string; alt: string }[];
 }
 

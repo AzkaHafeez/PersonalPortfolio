@@ -1,46 +1,46 @@
 ---
 slug: aura-pro
 title: AURA Pro
-description: Single-page product showcase for wireless headphones with interactive 3D viewing and scroll-led storytelling.
+description: A modern, high-impact product landing page for premium wireless headphones — immersive visuals, cinematic animations, interactive 3D storytelling, and a responsive experience that still feels fast.
 role: Frontend Developer
 duration: Product sprint · 2026
 year: "2026"
 featured: true
 tag: Product Showcase
-category: Product Design · Frontend
-problem: High-impact product storytelling without heavy assets or mid-range performance drops — and graceful degradation when WebGL is unavailable.
-solution: A scroll-led single-page showcase with Three.js product viewing, GSAP cinematic reveals, and an SVG fallback viewer.
-process: Wireframed the scroll narrative, built the 3D viewer with fallback logic, choreographed GSAP sequences, optimized asset loading.
-outcome: A premium product experience that feels cinematic yet loads fast, with graceful degradation for non-WebGL devices.
-coverImage: /images/projects/aura-pro-0.png
-# Home room slots — edit each URL independently
+category: Premium Product Landing Page for Wireless Headphones
+problem: Premium consumer electronics often rely on static product pages that fail to communicate craftsmanship and engineering. Dense specifications overwhelm users instead of building excitement — the challenge was turning tech specs into an engaging visual experience while staying fast and accessible across devices.
+solution: An immersive marketing website that showcases AURA Pro through interactive storytelling, GSAP scroll narrative, Three.js product viewing with SVG fallback, digestible feature cards, animated metrics, and a conversion-focused CTA.
+process: Built the complete landing page and responsive layouts; implemented scroll-triggered animations; integrated the 3D product viewer with graceful degradation; optimized interactions and performance; designed reusable UI sections.
+outcome: AURA Pro turns a traditional product page into an immersive brand experience — cinematic motion, interactive 3D, and responsive design that communicate premium positioning while staying usable on every device.
+coverImage: /images/projects/home/aura-pro-0.png
+# Homepage exhibition slots only — /images/projects/home/*
 placeholders:
-  primary: /images/projects/aura-pro-1.png
-  secondary: /images/projects/aura-pro-0.png
-  card: /images/projects/aura-pro-2.png
+  primary: /images/projects/home/aura-pro-1.png
+  secondary: /images/projects/home/aura-pro-0.png
+  card: /images/projects/home/aura-pro-2.png
   wall:
-    - src: /images/projects/aura-pro-3.png
+    - src: /images/projects/home/aura-pro-3.png
       alt: Feature storytelling
       variant: macbook
-    - src: /images/projects/aura-pro-4.png
+    - src: /images/projects/home/aura-pro-4.png
       alt: Specs and details
       variant: ipad
-    - src: /images/projects/aura-pro-5.png
+    - src: /images/projects/home/aura-pro-5.png
       alt: Brand story
       variant: iphone
-# Case study gallery (separate from home placeholders)
+# Case study gallery only — /images/projects/case/*
 images:
-  - src: /images/projects/aura-pro-0.png
+  - src: /images/projects/case/aura-pro-0.png
     alt: AURA Pro hero with 3D product viewer
-  - src: /images/projects/aura-pro-1.png
+  - src: /images/projects/case/aura-pro-1.png
     alt: Feature storytelling section
-  - src: /images/projects/aura-pro-2.png
+  - src: /images/projects/case/aura-pro-2.png
     alt: Spec counters and product details
-  - src: /images/projects/aura-pro-3.png
+  - src: /images/projects/case/aura-pro-3.png
     alt: Product details and brand story
-  - src: /images/projects/aura-pro-4.png
+  - src: /images/projects/case/aura-pro-4.png
     alt: Lifestyle and features
-  - src: /images/projects/aura-pro-5.png
+  - src: /images/projects/case/aura-pro-5.png
     alt: Final call-to-action
 tags:
   - HTML
@@ -52,45 +52,73 @@ links:
   github: https://github.com/AzkaHafeez/ProductShowcase
   caseStudy: true
 technologies:
-  - HTML
-  - CSS
+  - HTML5
+  - CSS3
   - GSAP
   - Three.js
-  - Lucide
+  - Lucide Icons
 ---
 
 ## Overview
 
-AURA Pro is a single-page product landing site for wireless headphones featuring interactive 3D product viewing and cinematic motion.
+AURA Pro is a modern, high-impact product landing page created to showcase a premium pair of wireless headphones through immersive visuals, cinematic animations, and interactive storytelling. Rather than presenting information in a conventional e-commerce format, the website guides users through a carefully crafted narrative that highlights the product's design, technology, and performance.
 
-The page is built to feel premium while staying lightweight, with a fallback viewer for devices that cannot render WebGL.
+The project combines motion design, 3D visualization, and responsive web development to create a memorable digital product experience.
+
+## The Problem
+
+Premium consumer electronics often rely on static product pages that fail to communicate the craftsmanship and engineering behind the product. Dense specifications and lengthy descriptions can overwhelm users instead of building excitement.
+
+The challenge was to design a landing page that transforms technical specifications into an engaging visual experience while maintaining fast performance and accessibility across devices.
+
+## The Goal
+
+The primary objective was to create an immersive marketing website that showcases the AURA Pro headphones through interactive storytelling and modern web technologies.
+
+Key goals included building a visually striking product showcase, increasing engagement through animations and motion, presenting technical specifications in a digestible format, integrating an interactive 3D product viewer, and ensuring a seamless responsive experience across desktop and mobile devices.
+
+## My Role
+
+As Frontend Developer, responsibilities included developing the complete landing page, implementing responsive layouts, creating scroll-triggered animations, integrating the 3D product viewer, optimizing interactions and performance, and designing reusable UI sections.
+
+## Design Approach
+
+The interface embraces a bold, minimalist aesthetic inspired by premium consumer technology brands. A black and deep red color palette reinforces the product's premium identity, while generous whitespace and large typography create a strong visual hierarchy.
+
+Rather than overwhelming users with information, content is revealed progressively through smooth scroll animations, allowing visitors to naturally explore the product's features and specifications.
+
+## User Journey
+
+Hero Introduction → Interactive 3D Product Showcase → Key Features → Technical Specifications → Performance Highlights → Call-to-Action → Order Section.
+
+## Key Features
+
+**Immersive Hero Section** — A bold hero introduces the product with animated typography, motion effects, and a fully interactive 3D headphone model. When 3D rendering is unavailable, an SVG fallback ensures a consistent experience across browsers.
+
+**Interactive 3D Product Viewer** — Users can rotate and explore the headphones from multiple angles, allowing them to appreciate industrial design and build quality before diving into technical specifications.
+
+**Scroll-Based Storytelling** — Content is progressively revealed using smooth GSAP-powered animations, creating a narrative flow through design philosophy, features, and performance.
+
+**Product Highlights** — Feature cards present key selling points including 40-hour battery life, adaptive AI-powered Active Noise Cancellation, Hi-Resolution Audio, titanium-coated drivers, and fast charging.
+
+**Animated Performance Metrics** — Specs appear through animated counters for battery life, noise cancellation depth, driver size, frequency response, and overall weight.
+
+**Responsive Navigation** — The landing page adapts across desktop, tablet, and mobile with layouts optimized for touch interactions.
+
+**Conversion-Focused Call-to-Action** — A prominent ordering section reinforces product value with trust indicators such as worldwide shipping, warranty coverage, and secure checkout.
 
 ## Challenges
 
-The challenge was creating a high-impact product story without heavy assets or performance drops on mid-range devices.
+One of the biggest challenges was balancing rich visual interactions with performance. Scroll-triggered animations, 3D rendering, and responsive layouts needed to work together without affecting loading speed or user experience.
 
-The experience also needed to degrade gracefully for users who cannot load 3D content.
+Another challenge involved ensuring graceful degradation by providing an SVG fallback whenever the 3D model failed to load, allowing every visitor to experience the page regardless of browser capabilities.
 
-## Architecture
+## Tech Stack
 
-A scroll-led layout with GSAP reveal animations drives the narrative. Three.js renders an interactive GLB model in the hero section, with an SVG fallback when WebGL is unavailable. Feature cards, spec counters, and CTA sections are progressively revealed on scroll.
+Frontend — HTML5 and CSS3. Libraries — GSAP, Three.js, and Lucide Icons. Assets — GLB 3D model and SVG fallback graphics.
 
-## User Flow
+## Outcome
 
-Visitors land on the 3D hero viewer, scroll through feature highlights with animated reveals, scan spec counters for key stats, and reach a final call-to-action. Mobile users get an adapted layout with touch-friendly navigation.
+AURA Pro successfully demonstrates how modern frontend technologies can transform a traditional product page into an immersive brand experience. By combining cinematic animations, interactive 3D visualization, and responsive design, the landing page effectively communicates the product's premium positioning while maintaining excellent usability across devices.
 
-## Development Process
-
-Wireframed the scroll narrative, built the 3D viewer with fallback logic, choreographed GSAP reveal sequences, and optimized asset loading for mid-range devices.
-
-## Results
-
-Delivered a premium product showcase that feels cinematic yet loads fast, with graceful degradation for non-WebGL devices.
-
-## Technologies
-
-HTML, CSS, GSAP, Three.js, and Lucide icons.
-
-## Reflection
-
-Product showcases succeed when motion guides attention rather than competing with it. I'd add lazy-loading for the 3D model and experiment with scroll-linked camera angles for deeper product exploration.
+The project strengthened understanding of animation-driven interfaces, performance optimization, 3D rendering on the web, and building engaging marketing experiences that blend storytelling with technical implementation.

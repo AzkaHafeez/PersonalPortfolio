@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getArchiveProjects } from "@/lib/content";
+import { getAllProjects, getHomeProjects } from "@/lib/content";
 import { MinimalHeader } from "@/components/layout/MinimalHeader";
 import { Footer } from "@/components/layout/Footer";
 import { ProjectsArchive } from "@/components/projects/ProjectsArchive";
@@ -8,11 +8,14 @@ import { ProjectsArchive } from "@/components/projects/ProjectsArchive";
 export const metadata: Metadata = {
   title: "View All Projects",
   description:
-    "Additional case studies from Azka Hafeez — campus platforms, AI products, and product experiments.",
+    "All case studies from Azka Hafeez — featured exhibition work and archive projects.",
 };
 
 export default function ProjectsArchivePage() {
-  const projects = getArchiveProjects();
+  const home = getHomeProjects();
+  const homeSlugs = new Set(home.map((p) => p.slug));
+  const rest = getAllProjects().filter((p) => !homeSlugs.has(p.slug));
+  const projects = [...home, ...rest];
 
   return (
     <>
@@ -31,8 +34,8 @@ export default function ProjectsArchivePage() {
             View all projects
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-muted md:text-lg">
-            Selected work beyond the home exhibition — each board opens a full
-            case study.
+            Full lineup — featured exhibition work and everything else in the
+            vault. Each row opens a case study.
           </p>
 
           <ProjectsArchive projects={projects} />

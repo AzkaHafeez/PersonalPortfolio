@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <rect width="900" height="1200" fill="#FFF6EE"/>
+  <text x="48" y="64" font-family="system-ui,sans-serif" font-size="12" fill="#D86072" letter-spacing="3">ORDER TRACKING</text>
+  <text x="48" y="112" font-family="Georgia,serif" font-size="36" font-weight="700" fill="#262628">On the way</text>
+  <text x="48" y="148" font-family="system-ui,sans-serif" font-size="15" fill="#6B6864">Order #AB-2048 · Oven House</text>
+
+  <rect x="48" y="188" width="804" height="8" rx="4" fill="#F3EBE3"/>
+  <rect x="48" y="188" width="560" height="8" rx="4" fill="#D86072"/>
+
+  <circle cx="80" cy="260" r="14" fill="#D86072"/>
+  <text x="112" y="256" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#262628">Confirmed</text>
+  <text x="112" y="278" font-family="system-ui,sans-serif" font-size="13" fill="#6B6864">10:14 AM</text>
+
+  <circle cx="80" cy="340" r="14" fill="#D86072"/>
+  <text x="112" y="336" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#262628">Baking</text>
+  <text x="112" y="358" font-family="system-ui,sans-serif" font-size="13" fill="#6B6864">Fresh batch in progress</text>
+
+  <circle cx="80" cy="420" r="14" fill="#C6C2F2"/>
+  <text x="112" y="416" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#262628">Out for delivery</text>
+  <text x="112" y="438" font-family="system-ui,sans-serif" font-size="13" fill="#6B6864">ETA 2535 min</text>
+
+  <circle cx="80" cy="500" r="14" fill="#F3EBE3" stroke="#C6C2F2" stroke-width="2"/>
+  <text x="112" y="496" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#6B6864">Delivered</text>
+  <text x="112" y="518" font-family="system-ui,sans-serif" font-size="13" fill="#6B6864">Pending</text>
+
+  <line x1="80" y1="274" x2="80" y2="326" stroke="#D86072" stroke-width="3"/>
+  <line x1="80" y1="354" x2="80" y2="406" stroke="#D86072" stroke-width="3"/>
+  <line x1="80" y1="434" x2="80" y2="486" stroke="#C6C2F2" stroke-width="3" stroke-dasharray="4 4"/>
+
+  <rect x="48" y="580" width="804" height="220" rx="24" fill="#F3EBE3"/>
+  <text x="80" y="640" font-family="Georgia,serif" font-size="24" font-weight="700" fill="#262628">Customize again?</text>
+  <text x="80" y="678" font-family="system-ui,sans-serif" font-size="14" fill="#6B6864">Save this pastry mix for your next order.</text>
+  <rect x="80" y="710" width="140" height="44" rx="22" fill="#D86072"/>
+  <text x="108" y="738" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#FFF6EE">Reorder</text>
+  <rect x="240" y="710" width="160" height="44" rx="22" fill="none" stroke="#262628" stroke-width="1.5"/>
+  <text x="268" y="738" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#262628">View receipt</text>
+
+  <rect x="48" y="860" width="804" height="200" rx="24" fill="#262628"/>
+  <text x="80" y="920" font-family="system-ui,sans-serif" font-size="12" fill="#FFF6EE" fill-opacity="0.5" letter-spacing="2">BAKERY NOTE</text>
+  <text x="80" y="968" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#FFF6EE">Warm boxes · same-day glaze</text>
+  <text x="80" y="1010" font-family="system-ui,sans-serif" font-size="14" fill="#FFF6EE" fill-opacity="0.65">Your croissants left the oven at 10:40.</text>
+</svg>

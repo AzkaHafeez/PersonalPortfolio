@@ -6,6 +6,7 @@ import { ImageGallery } from "./ImageGallery";
 import { AsymmetricBand } from "./AsymmetricBand";
 import { ProjectTitle } from "./ProjectHeroMotion";
 import { CaseStudyDeviceCluster } from "@/components/projects/CaseStudyDeviceCluster";
+import { EscapingLaptopDuo } from "@/components/projects/EscapingLaptopDuo";
 import { MinimalHeader } from "@/components/layout/MinimalHeader";
 import { Footer } from "@/components/layout/Footer";
 import { compileSections, splitMdxByH2 } from "@/lib/project-sections";
@@ -23,6 +24,7 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
   const preferPhone =
     project.slug === "edunet" ||
     (project.category ?? "").toLowerCase().includes("mobile");
+  const escapeDuo = project.escapeDuo ?? null;
 
   const rawSections = splitMdxByH2(project.content);
   const sections = await compileSections(rawSections);
@@ -112,6 +114,17 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
             </div>
           </header>
 
+          {escapeDuo && (
+            <EscapingLaptopDuo
+              left={escapeDuo.left}
+              right={escapeDuo.right}
+              leftAlt={escapeDuo.leftAlt}
+              rightAlt={escapeDuo.rightAlt}
+              title="Full-page views"
+              lead="Two tall page compositions escaping past the laptop base."
+            />
+          )}
+
           {/* Alternating chapter bands */}
           <div className="container-editorial px-6 md:px-10 lg:px-16 xl:px-24">
             {sections.map((section, i) => (
@@ -149,18 +162,14 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
 
           {gallery.length > 0 && gallery.length <= sections.length && (
             <div className="section-padding container-editorial !pt-4">
-              <div className="mb-10 grid gap-6 border-t border-border pt-16 md:grid-cols-12">
-                <div className="md:col-span-4">
-                  <h2 className="font-serif-display text-3xl font-bold md:text-4xl">
-                    Gallery
-                  </h2>
-                  <p className="mt-3 text-sm text-fg-muted">
-                    Device frames — click for fullscreen.
-                  </p>
-                </div>
-                <div className="md:col-span-8">
-                  <ImageGallery images={gallery} preferPhone={preferPhone} />
-                </div>
+              <div className="border-t border-border pt-16">
+                <h2 className="font-serif-display text-3xl font-bold md:text-4xl">
+                  Gallery
+                </h2>
+                <p className="mt-3 text-sm text-fg-muted">
+                  Device frames — click for fullscreen.
+                </p>
+                <ImageGallery images={gallery} preferPhone={preferPhone} />
               </div>
             </div>
           )}

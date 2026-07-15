@@ -1,27 +1,55 @@
 ---
 slug: artisan-bakeries
 title: Artisan Bakeries
-description: A full-stack marketplace connecting local artisan bakeries with customers through inventory-aware ordering, product customization, and responsive digital storefronts.
+description: A full-stack bakery management platform that helps local bakeries establish a modern online presence while simplifying day-to-day operations — from custom orders to inventory and fulfillment.
 role: Frontend Developer
 duration: Feb 2026 – Apr 2026
 year: "2026"
 featured: true
 tag: Marketplace
-category: Full-Stack Web Platform
-problem: Most local bakeries rely on fragmented ordering methods like WhatsApp, phone calls, or walk-in purchases. Customers have limited visibility into product availability, customization options, and delivery status, while bakery owners struggle with inventory management and digital storefronts.
-solution: Developed a responsive full-stack marketplace where customers can browse multiple bakeries, customize baked goods, place orders, and track purchases. The platform integrates real-time inventory validation and bakery-specific product management to streamline both customer and vendor workflows.
-process: Built reusable React components and responsive UIs for browsing, cart, and authentication; connected the frontend to REST APIs with inventory-aware state; optimized product catalogs and cross-device layouts for a modular marketplace experience.
-outcome: Delivered a polished marketplace enabling customers to discover artisan bakeries, customize products, and complete purchases through an intuitive interface while providing bakery owners with a scalable digital storefront.
-coverImage: /images/projects/artisan-listing.svg
+category: Bakery Management & Custom Ordering Platform
+problem: Many small bakeries still rely on social media, phone calls, or messaging apps to receive orders — leading to inconsistent tracking, inventory confusion, pricing errors, and limited product showcase. Customers also struggle to customize products or receive order updates.
+solution: Built a scalable platform combining an elegant customer storefront with powerful management tools — customizable products, inventory-aware availability, checkout, order tracking, and a centralized bakery dashboard.
+process: Developed responsive React interfaces and reusable UI components; built shopping, browsing, filtering, and API-integrated flows; optimized cross-device experiences while keeping customization and pricing dynamics clear.
+outcome: Artisan Bakeries delivers a complete digital solution that improves the online shopping experience for customers while simplifying operations for bakery owners — with a modular foundation for payments, delivery, accounts, loyalty, and analytics.
+# Cover / social — home namespace
+coverImage: /images/projects/home/artisan-listing.svg
+# Case study: dual escaping MacBooks (dedicated files — not shared with gallery)
+escapeDuo:
+  left: /images/projects/case/artisan-escape-left.svg
+  right: /images/projects/case/artisan-escape-right.svg
+  leftAlt: Marketplace storefront — full page
+  rightAlt: Cart and checkout — full page
+# Homepage exhibition slots only — /images/projects/home/*
+placeholders:
+  scroll: /images/projects/home/artisan-listing.svg
+  browserPhone:
+    browser: /images/projects/home/artisan-product.svg
+    phone: /images/projects/home/artisan-mobile.svg
+    browserAlt: Product detail with order CTA
+    phoneAlt: Mobile bakery discovery and cart
+  card: /images/projects/home/artisan-bakery-dash.svg
+  wall:
+    - src: /images/projects/home/artisan-cart.svg
+      alt: Cart and checkout with inventory-aware totals
+      variant: macbook
+    - src: /images/projects/home/artisan-tracking.svg
+      alt: Order tracking and reorder
+      variant: ipad
+# Case study gallery only — /images/projects/case/*
 images:
-  - src: /images/projects/artisan-listing.svg
+  - src: /images/projects/case/artisan-listing.svg
     alt: Bakery marketplace with categories and featured bakeries
-  - src: /images/projects/artisan-product.svg
+  - src: /images/projects/case/artisan-product.svg
     alt: Product detail with order CTA
-  - src: /images/projects/artisan-mobile.svg
+  - src: /images/projects/case/artisan-mobile.svg
     alt: Mobile bakery discovery and cart
-  - src: /images/projects/artisan-bakery-dash.svg
+  - src: /images/projects/case/artisan-bakery-dash.svg
     alt: Bakery owner dashboard
+  - src: /images/projects/case/artisan-cart.svg
+    alt: Cart and checkout with inventory-aware totals
+  - src: /images/projects/case/artisan-tracking.svg
+    alt: Order tracking and reorder
 tags:
   - React
   - JavaScript
@@ -40,28 +68,56 @@ technologies:
 
 ## Overview
 
-A modern marketplace connecting customers with independent artisan bakeries through a seamless online ordering experience. The platform enables bakery discovery, customizable product ordering, inventory-aware purchases, and efficient order management while preserving each bakery's unique identity.
+Artisan Bakeries is a full-stack bakery management platform designed to help local bakeries establish a modern online presence while simplifying day-to-day operations. The platform allows customers to browse products, customize orders, and place purchases online, while bakery owners manage inventory, monitor sales, and streamline order fulfillment through a centralized dashboard.
+
+The project focused on creating an intuitive shopping experience without sacrificing the operational tools needed by bakery owners.
+
+## The Problem
+
+Many small bakeries still rely on social media, phone calls, or messaging applications to receive orders. This process often results in inconsistent order tracking, inventory confusion, pricing errors, and limited opportunities to showcase products effectively.
+
+Customers also struggle to customize products or receive updates on their orders, creating friction throughout the purchasing journey.
+
+## The Goal
+
+The objective was to build a scalable platform that modernizes the bakery ordering experience by combining an elegant customer storefront with powerful management tools for bakery owners.
+
+Key goals included simplifying online ordering, supporting customizable bakery products, reducing manual inventory management, improving order tracking, and creating an intuitive and responsive user experience.
+
+## My Role
+
+As Frontend Developer, responsibilities included developing responsive React interfaces, building reusable UI components, creating customer-facing shopping experiences, implementing product browsing and filtering, integrating frontend components with backend APIs, and optimizing responsiveness across devices.
+
+## Design Approach
+
+The interface was designed around warmth, simplicity, and accessibility. Soft colors, spacious layouts, and high-quality product imagery help communicate freshness and craftsmanship while keeping the purchasing process straightforward.
+
+The user journey was intentionally kept short to reduce friction between discovering products and completing an order.
+
+## Key Features
+
+**Customer Storefront** — Customers can browse bakery collections, explore seasonal products, and discover featured items through an organized product catalog.
+
+**Custom Cake Builder** — Instead of selecting predefined products only, customers can personalize cakes by choosing flavors, sizes, decorations, and additional options. Dynamic pricing updates automatically based on selected customizations.
+
+**Smart Inventory Integration** — Product availability reflects inventory status, preventing customers from selecting unavailable items and reducing order conflicts.
+
+**Shopping Cart & Checkout** — Users can manage quantities, review customizations, and complete purchases through a streamlined checkout process.
+
+**Order Tracking** — Customers receive clear updates throughout the preparation and fulfillment process, improving transparency after purchase.
+
+**Bakery Dashboard** — Bakery owners can manage products, monitor incoming orders, update inventory, and review sales performance from a centralized dashboard.
 
 ## Challenges
 
-Most local bakeries rely on fragmented ordering methods like WhatsApp, phone calls, or walk-in purchases. Customers have limited visibility into product availability, customization options, and delivery status, while bakery owners struggle with inventory management and digital storefronts.
+One of the primary challenges was maintaining a clean and intuitive interface while supporting highly customizable products. The ordering flow needed to remain simple even as multiple customization options dynamically affected pricing and availability.
 
-## Architecture
+Another challenge involved designing reusable frontend components that could scale as additional product categories and bakery features were introduced.
 
-A React frontend communicates with a Node.js and Express REST API backed by MongoDB. Product catalogs, carts, and inventory validation stay in sync across customer and bakery-facing surfaces.
+## Tech Stack
 
-## Development Process
+Frontend — React and JavaScript. Backend — Node.js and Express.js. Database — MongoDB.
 
-As Frontend Developer: reusable React components, responsive marketplace UI, product browsing, cart interactions, authentication flows, REST API integration, state management, and performance-minded rendering for product catalogs.
+## Outcome
 
-## Results
-
-Delivered a polished marketplace experience enabling customers to discover artisan bakeries, customize products, and complete purchases while giving bakery owners a scalable digital storefront.
-
-## Technologies
-
-React, JavaScript, Node.js, Express.js, and MongoDB.
-
-## Reflection
-
-Marketplace products succeed when inventory truth and customization feel invisible to the customer. Next steps would deepen bakery-specific branding within a still-cohesive platform shell.
+Artisan Bakeries delivers a complete digital solution that improves the online shopping experience for customers while simplifying operations for bakery owners. Its modular architecture provides a strong foundation for future enhancements such as online payments, delivery tracking, customer accounts, loyalty programs, and advanced business analytics.

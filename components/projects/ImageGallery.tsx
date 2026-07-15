@@ -26,7 +26,7 @@ export function ImageGallery({
 
   return (
     <>
-      <div className="mt-8 grid items-end gap-10 sm:grid-cols-2 lg:gap-12">
+      <div className="mt-8 grid items-end gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
         {images.map((image, index) => {
           const variant = variants[index % variants.length];
           return (

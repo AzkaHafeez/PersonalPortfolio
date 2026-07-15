@@ -1,84 +1,105 @@
 ---
 slug: edunet
-title: Edunet
-description: Local-first offline classroom platform for chat, file sharing, and calls without internet.
-role: Flutter Developer
+title: EduNet
+description: An offline-first mobile learning platform for collaborative education in environments with limited or unreliable internet — peer-to-peer classrooms, file sharing, and local learning without continuous connectivity.
+role: Mobile Application Developer
 duration: Prototype build · 2025
 year: "2025"
 featured: true
 tag: Offline-First
-category: Mobile · Offline Systems
-problem: Classrooms often lack reliable internet — teachers and students still need chat, file sharing, and calls without cloud dependency.
-solution: A local-first Flutter classroom app using Nearby Connections and WebRTC for offline discovery, messaging, and AV calls.
-process: Implemented peer discovery, star-topology rebroadcast, Hive local storage, and WebRTC call flows for teacher/student roles.
-outcome: A working offline classroom prototype that operates without internet while preserving core communication workflows.
-coverImage: /images/projects/edunet-dashboard.svg
+category: Offline Collaborative Learning Platform
+problem: Many educational platforms assume constant internet connectivity, making them less effective where stable access is unavailable. Students struggle to exchange files, receive classroom updates, or continue learning when disconnected — and traditional LMS tools offer limited support for localized offline collaboration.
+solution: Designed an offline-first mobile application for classroom communication, resource sharing, and collaborative learning using local wireless technologies so educational content stays available and interaction continues without continuous internet.
+process: Designed mobile UIs; developed Flutter screens and navigation; implemented offline-first workflows and classroom interaction features; optimized application performance across connected and disconnected states.
+outcome: EduNet shows how offline-first design improves educational accessibility by removing dependence on continuous internet — enabling seamless classroom collaboration with a foundation for LMS sync, encrypted sharing, and expanded peer-to-peer networking.
+coverImage: /images/projects/home/edunet-dashboard.svg
+# Homepage showcase uses hardcoded /images/projects/home/* in EdunetMobileShowcase
+# Case study gallery only — /images/projects/case/*
 images:
-  - src: /images/projects/edunet-dashboard.svg
+  - src: /images/projects/case/edunet-dashboard.svg
     alt: Classroom Dashboard
-  - src: /images/projects/edunet-list.svg
+  - src: /images/projects/case/edunet-list.svg
     alt: Classroom List
-  - src: /images/projects/edunet-chat.svg
+  - src: /images/projects/case/edunet-chat.svg
     alt: Chat
-  - src: /images/projects/edunet-home.svg
+  - src: /images/projects/case/edunet-home.svg
     alt: Home
-  - src: /images/projects/edunet-videocall.svg
+  - src: /images/projects/case/edunet-videocall.svg
     alt: Video Call
-  - src: /images/projects/edunet-settings.svg
+  - src: /images/projects/case/edunet-settings.svg
     alt: Settings
-  - src: /images/projects/edunet-join.svg
+  - src: /images/projects/case/edunet-join.svg
     alt: Join Classroom
-  - src: /images/projects/edunet-notes.svg
+  - src: /images/projects/case/edunet-notes.svg
     alt: Notes
 tags:
   - Flutter
-  - WebRTC
-  - Nearby Connections
+  - Dart
   - Hive
+  - Bluetooth
 links:
   live: ""
   github: https://github.com/Sanehaakhtar/edunet-mobile
   caseStudy: true
 technologies:
   - Flutter
-  - Provider
+  - Dart
   - Hive
-  - nearby_connections
-  - flutter_webrtc
+  - Bluetooth P2P
 ---
 
 ## Overview
 
-Edunet is a local-first, offline classroom platform built with Flutter. It lets teachers and students communicate, share files, and run calls without internet.
+EduNet is an offline-first mobile learning platform designed to support collaborative education in environments with limited or unreliable internet connectivity. By leveraging peer-to-peer communication, the application enables students to share learning resources, participate in classroom activities, and collaborate locally without requiring continuous internet access.
 
-The app runs on Android devices that support BLE and Wi-Fi Direct.
+The project was built with accessibility and resilience in mind, ensuring that learning can continue regardless of network availability.
+
+## The Problem
+
+Many educational platforms assume constant internet connectivity, making them less effective in classrooms where stable access is unavailable. Students often struggle to exchange files, receive classroom updates, or continue learning when disconnected.
+
+Traditional learning management systems also provide limited support for localized collaboration in offline environments.
+
+## The Goal
+
+The objective was to design an offline-first mobile application capable of supporting classroom communication, resource sharing, and collaborative learning using local wireless technologies.
+
+The platform aimed to make educational content consistently available while encouraging interaction between students and instructors.
+
+## My Role
+
+As Mobile Application Developer, responsibilities included designing mobile user interfaces, developing Flutter screens and navigation, implementing offline-first workflows, building classroom interaction features, and optimizing application performance.
+
+## Design Approach
+
+The interface prioritizes clarity and ease of navigation to minimize distractions during learning sessions. Educational content remains the focal point, while simple navigation patterns allow users to quickly switch between classrooms, resources, discussions, and assignments.
+
+Offline availability influenced every design decision, ensuring that essential features remain functional without internet connectivity.
+
+## Key Features
+
+**Offline Classrooms** — Students can join nearby classrooms and continue participating even without an active internet connection.
+
+**Peer-to-Peer Communication** — Bluetooth-based communication enables nearby devices to exchange educational content directly.
+
+**File Sharing** — Students and instructors can securely exchange lecture notes, presentations, assignments, and supporting materials through local device connections.
+
+**Classroom Discussions** — Offline messaging allows classroom conversations to continue even in disconnected environments.
+
+**Learning Resources** — Students can access notes, assignments, quizzes, and announcements directly from their local device.
+
+**Local Data Storage** — Course materials and classroom information are stored locally, allowing learners to continue studying without interruption.
 
 ## Challenges
 
-Most classroom tools assume stable internet, which breaks down in low-connectivity environments and during on-campus demos.
+Designing an application that remains fully functional offline required careful planning around data synchronization, storage management, and user expectations.
 
-The challenge was building reliable peer-to-peer communication with clear roles for teachers (hosts) and students (clients).
+Maintaining a consistent experience across both connected and disconnected states was another significant challenge throughout development.
 
-## Architecture
+## Tech Stack
 
-Google Nearby Connections handles offline device discovery and data transfer. WebRTC powers audio and video calls. A star topology with application-layer routing lets the teacher node rebroadcast student messages, simulating a mesh-like classroom network. Hive provides local data persistence.
+Mobile — Flutter and Dart. Storage — Hive Database. Communication — Bluetooth Peer-to-Peer Networking.
 
-## User Flow
+## Outcome
 
-Teachers create a classroom session and broadcast their presence. Students discover and join via Nearby Connections. Chat, file sharing, and calls flow through the teacher node, enabling full classroom communication without any internet connection.
-
-## Development Process
-
-Prototyped peer discovery on Android devices, tested WebRTC call quality over local networks, iterated on the star-topology message routing, and validated with on-campus classroom demos.
-
-## Results
-
-Demonstrated reliable offline classroom communication with chat, file sharing, and audio/video calls on BLE and Wi-Fi Direct capable Android devices.
-
-## Technologies
-
-Flutter, Provider, Hive, nearby_connections, and flutter_webrtc.
-
-## Reflection
-
-Offline-first apps require thinking about network topology from day one. I'd explore true mesh networking for larger classrooms and add iOS support with Multipeer Connectivity as a parallel transport layer.
+EduNet demonstrates how offline-first design can improve educational accessibility by removing dependence on continuous internet connectivity. The platform enables seamless classroom collaboration while providing a scalable foundation for future features such as synchronization with cloud learning management systems, encrypted resource sharing, and expanded peer-to-peer networking capabilities.

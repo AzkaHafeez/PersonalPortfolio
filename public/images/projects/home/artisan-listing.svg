@@ -1,0 +1,23 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#FFF6EE"/>
+  <circle cx="48" cy="32" r="14" fill="#D86072"/>
+  <text x="72" y="38" font-family="system-ui,sans-serif" font-size="16" font-weight="600" fill="#262628">Artisan</text>
+  <text x="48" y="130" font-family="Georgia,serif" font-size="42" font-weight="700" fill="#262628">Categories</text>
+  <rect x="48" y="160" width="110" height="44" rx="22" fill="none" stroke="#C6C2F2" stroke-width="2"/>
+  <text x="78" y="188" font-family="system-ui,sans-serif" font-size="13" fill="#262628">Bread</text>
+  <rect x="172" y="160" width="120" height="44" rx="22" fill="#C6C2F2" fill-opacity="0.45"/>
+  <text x="200" y="188" font-family="system-ui,sans-serif" font-size="13" fill="#262628">Pastry</text>
+  <text x="48" y="270" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#262628">Top Bakeries</text>
+  <rect x="48" y="300" width="340" height="280" rx="28" fill="#F3EBE3"/>
+  <rect x="48" y="300" width="340" height="180" rx="28" fill="#C6C2F2" fill-opacity="0.55"/>
+  <text x="72" y="520" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#262628">Crumb &amp; Co.</text>
+  <text x="72" y="548" font-family="system-ui,sans-serif" font-size="14" fill="#6B6864">Islamabad · ★ 4.8</text>
+  <rect x="420" y="300" width="340" height="280" rx="28" fill="#F3EBE3"/>
+  <rect x="420" y="300" width="340" height="180" rx="28" fill="#D6DC82" fill-opacity="0.45"/>
+  <text x="444" y="520" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#262628">Oven House</text>
+  <text x="444" y="548" font-family="system-ui,sans-serif" font-size="14" fill="#6B6864">Lahore · ★ 4.6</text>
+  <rect x="792" y="300" width="340" height="280" rx="28" fill="#F3EBE3"/>
+  <rect x="792" y="300" width="340" height="180" rx="28" fill="#D86072" fill-opacity="0.28"/>
+  <text x="816" y="520" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#262628">Flour Bar</text>
+  <text x="816" y="548" font-family="system-ui,sans-serif" font-size="14" fill="#6B6864">Karachi · ★ 4.9</text>
+</svg>
