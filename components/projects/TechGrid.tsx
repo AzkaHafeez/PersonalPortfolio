@@ -1,8 +1,10 @@
+import { memo } from "react";
+
 interface TechGridProps {
   technologies: string[];
 }
 
-export function TechGrid({ technologies }: TechGridProps) {
+export const TechGrid = memo(function TechGrid({ technologies }: TechGridProps) {
   return (
     <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
       {technologies.map((tech) => (
@@ -15,4 +17,4 @@ export function TechGrid({ technologies }: TechGridProps) {
       ))}
     </div>
   );
-}
+});

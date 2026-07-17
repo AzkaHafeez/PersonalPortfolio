@@ -1,12 +1,26 @@
 "use client";
 
+import Image from "next/image";
 import { ScreenPlaceholder } from "@/components/projects/ScreenPlaceholder";
+
+interface DeviceSlot {
+  src: string;
+  alt: string;
+  aspectRatio?: number;
+}
 
 interface CaseStudyDeviceClusterProps {
   title: string;
   captions?: [string, string, string];
   totalFrames?: number;
   className?: string;
+  /** Real per-project screenshots — each slot is its own dedicated image,
+   * never shared. Falls back to a clean placeholder card when a slot has
+   * no image yet, instead of ever stretching/cropping the wrong content
+   * into it. */
+  laptop?: DeviceSlot | null;
+  tablet?: DeviceSlot | null;
+  phone?: DeviceSlot | null;
 }
 
 /**
@@ -18,11 +32,14 @@ export function CaseStudyDeviceCluster({
   captions = ["Dashboard", "Management", "Mobile View"],
   totalFrames = 8,
   className = "",
+  laptop,
+  tablet,
+  phone,
 }: CaseStudyDeviceClusterProps) {
   return (
     <div
       className={`relative w-full bg-transparent ${className}`}
-      aria-label={`${title} product lineup placeholder`}
+      aria-label={`${title} product lineup`}
     >
       <div className="relative mx-auto aspect-[5/4] w-full max-w-2xl sm:aspect-[16/11]">
         {/* Laptop — center back */}
@@ -37,13 +54,27 @@ export function CaseStudyDeviceCluster({
               aria-hidden
             />
             <div className="rounded-[10px] border border-black/30 bg-[#1c1c1e] p-[6px] shadow-[0_24px_48px_-16px_rgba(0,0,0,0.35)] sm:p-[8px]">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-[4px]">
-                <ScreenPlaceholder
-                  title={title}
-                  subtitle={captions[0]}
-                  index={1}
-                  total={totalFrames}
-                />
+              <div
+                className="relative overflow-hidden rounded-[4px]"
+                style={{ aspectRatio: laptop?.aspectRatio ?? 16 / 10 }}
+              >
+                {laptop ? (
+                  <Image
+                    src={laptop.src}
+                    alt={laptop.alt}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 72vw, 620px"
+                    priority
+                  />
+                ) : (
+                  <ScreenPlaceholder
+                    title={title}
+                    subtitle={captions[0]}
+                    index={1}
+                    total={totalFrames}
+                  />
+                )}
               </div>
             </div>
             {/* Laptop chin + base */}
@@ -63,13 +94,26 @@ export function CaseStudyDeviceCluster({
             aria-hidden
           />
           <div className="rounded-[14px] border border-black/30 bg-[#1c1c1e] p-[5px] shadow-[0_20px_40px_-14px_rgba(0,0,0,0.35)] sm:p-[6px]">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[8px]">
-              <ScreenPlaceholder
-                title={title}
-                subtitle={captions[1]}
-                index={2}
-                total={totalFrames}
-              />
+            <div
+              className="relative overflow-hidden rounded-[8px]"
+              style={{ aspectRatio: tablet?.aspectRatio ?? 3 / 2 }}
+            >
+              {tablet ? (
+                <Image
+                  src={tablet.src}
+                  alt={tablet.alt}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 30vw, 260px"
+                />
+              ) : (
+                <ScreenPlaceholder
+                  title={title}
+                  subtitle={captions[1]}
+                  index={2}
+                  total={totalFrames}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -85,13 +129,26 @@ export function CaseStudyDeviceCluster({
             aria-hidden
           />
           <div className="rounded-[1.35rem] border border-black/30 bg-[#1c1c1e] p-[5px] shadow-[0_22px_40px_-12px_rgba(0,0,0,0.4)] sm:rounded-[1.55rem] sm:p-[6px]">
-            <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.05rem] sm:rounded-[1.2rem]">
-              <ScreenPlaceholder
-                title={title}
-                subtitle={captions[2]}
-                index={3}
-                total={totalFrames}
-              />
+            <div
+              className="relative overflow-hidden rounded-[1.05rem] sm:rounded-[1.2rem]"
+              style={{ aspectRatio: phone?.aspectRatio ?? 9 / 19.5 }}
+            >
+              {phone ? (
+                <Image
+                  src={phone.src}
+                  alt={phone.alt}
+                  fill
+                  className="object-cover object-top"
+                  sizes="140px"
+                />
+              ) : (
+                <ScreenPlaceholder
+                  title={title}
+                  subtitle={captions[2]}
+                  index={3}
+                  total={totalFrames}
+                />
+              )}
               <div
                 className="absolute left-1/2 top-1.5 z-20 h-[14px] w-[42%] -translate-x-1/2 rounded-full bg-black sm:top-2 sm:h-[16px]"
                 aria-hidden

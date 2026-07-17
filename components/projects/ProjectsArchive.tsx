@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Project } from "@/lib/types";
 import { ScreenPlaceholder } from "@/components/projects/ScreenPlaceholder";
+import { EASE_EDITORIAL, revealViewport } from "@/lib/motion";
 
 interface ProjectsArchiveProps {
   projects: Project[];
@@ -23,6 +25,11 @@ export function ProjectsArchive({ projects }: ProjectsArchiveProps) {
           (project.category ?? "").toLowerCase().includes("mobile");
         const subtitle =
           project.category ?? project.tag ?? (isMobile ? "Mobile View" : "Overview");
+        const previewSrc = project.coverImage ?? project.images?.[0]?.src ?? null;
+        const previewAlt = project.images?.[0]?.alt ?? project.title;
+        const previewAspect =
+          (previewSrc && project.imageDimensions[previewSrc]?.aspectRatio) ??
+          (isMobile ? 9 / 16 : 16 / 10);
 
         return (
           <motion.div
@@ -31,11 +38,11 @@ export function ProjectsArchive({ projects }: ProjectsArchiveProps) {
             whileInView={
               prefersReducedMotion ? undefined : { opacity: 1, y: 0 }
             }
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={revealViewport}
             transition={{
               duration: 0.7,
-              delay: prefersReducedMotion ? 0 : index * 0.06,
-              ease: [0.16, 1, 0.3, 1],
+              delay: prefersReducedMotion ? 0 : index * 0.05,
+              ease: EASE_EDITORIAL,
             }}
           >
             <Link
@@ -81,17 +88,26 @@ export function ProjectsArchive({ projects }: ProjectsArchiveProps) {
                   >
                     <div
                       className={`relative overflow-hidden bg-[#f4f2ed] ${
-                        isMobile
-                          ? "aspect-[9/19.5] rounded-[1.05rem]"
-                          : "aspect-[16/10] rounded-sm"
+                        isMobile ? "rounded-[1.05rem]" : "rounded-sm"
                       }`}
+                      style={{ aspectRatio: previewAspect }}
                     >
-                      <ScreenPlaceholder
-                        title={project.title}
-                        subtitle={subtitle}
-                        index={index + 1}
-                        total={projects.length}
-                      />
+                      {previewSrc ? (
+                        <Image
+                          src={previewSrc}
+                          alt={previewAlt}
+                          fill
+                          className="object-cover object-top"
+                          sizes="(max-width: 768px) 45vw, 260px"
+                        />
+                      ) : (
+                        <ScreenPlaceholder
+                          title={project.title}
+                          subtitle={subtitle}
+                          index={index + 1}
+                          total={projects.length}
+                        />
+                      )}
                       {isMobile && (
                         <div
                           className="absolute left-1/2 top-1.5 z-20 h-3 w-[38%] -translate-x-1/2 rounded-full bg-obsidian"

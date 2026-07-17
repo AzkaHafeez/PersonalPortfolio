@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project } from "@/lib/types";
 import { getAllProjects } from "@/lib/content";
+import { classifyByOrientation, withAspect } from "@/lib/image-select";
 import { TechGrid } from "./TechGrid";
 import { ImageGallery } from "./ImageGallery";
 import { AsymmetricBand } from "./AsymmetricBand";
@@ -20,11 +21,24 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
   const index = all.findIndex((p) => p.slug === project.slug);
   const prev = index > 0 ? all[index - 1] : null;
   const next = index >= 0 && index < all.length - 1 ? all[index + 1] : null;
-  const gallery = project.images ?? [];
+  const dims = project.imageDimensions;
+  const gallery = (project.images ?? []).map((img) => withAspect(img, dims)!);
   const preferPhone =
     project.slug === "edunet" ||
     (project.category ?? "").toLowerCase().includes("mobile");
   const escapeDuo = project.escapeDuo ?? null;
+
+  // Auto-match each screenshot's real orientation to the right device slot
+  // in the hero cluster instead of assuming a fixed index per project — a
+  // slot only ever gets an image whose orientation actually fits its
+  // silhouette (landscape into laptop/tablet, portrait into phone), so a
+  // mobile-only case study never stretches a portrait shot into the laptop
+  // frame, and one without any mobile screens keeps a clean placeholder in
+  // the phone slot instead of squeezing in a mismatched desktop shot.
+  const { landscape, portrait } = classifyByOrientation(gallery, dims);
+  const clusterLaptop = withAspect(landscape[0] ?? null, dims);
+  const clusterTablet = withAspect(landscape[1] ?? null, dims);
+  const clusterPhone = withAspect(portrait[0] ?? null, dims);
 
   const rawSections = splitMdxByH2(project.content);
   const sections = await compileSections(rawSections);
@@ -109,6 +123,9 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                       ? ["Overview", "Classroom", "Mobile View"]
                       : ["Dashboard", "Management", "Mobile View"]
                   }
+                  laptop={clusterLaptop}
+                  tablet={clusterTablet}
+                  phone={clusterPhone}
                 />
               </div>
             </div>
@@ -120,6 +137,8 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
               right={escapeDuo.right}
               leftAlt={escapeDuo.leftAlt}
               rightAlt={escapeDuo.rightAlt}
+              leftAspectRatio={dims[escapeDuo.left]?.aspectRatio}
+              rightAspectRatio={dims[escapeDuo.right]?.aspectRatio}
               title="Full-page views"
               lead="Two tall page compositions escaping past the laptop base."
             />

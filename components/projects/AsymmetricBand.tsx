@@ -3,12 +3,13 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { DeviceFrame } from "@/components/exhibition/DeviceFrame";
+import { revealTransition, revealViewport } from "@/lib/motion";
 
 interface AsymmetricBandProps {
   index: number;
   title: string;
   children: React.ReactNode;
-  image?: { src: string; alt: string } | null;
+  image?: { src: string; alt: string; aspectRatio?: number } | null;
   /** When true, image sits on the left */
   imageLeft?: boolean;
   /** Prefer phone chrome for mobile-first case studies */
@@ -50,6 +51,7 @@ export function AsymmetricBand({
           src={image.src}
           alt={image.alt}
           variant={variant}
+          aspectRatio={image.aspectRatio}
         />
       </div>
       <span className="label-caps mt-3 block text-fg-muted">
@@ -74,10 +76,10 @@ export function AsymmetricBand({
     <>
       <motion.section
         className="border-t border-border py-16 md:py-24"
-        initial={{ opacity: 0, y: 28 }}
+        initial={{ opacity: 0, y: 22 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+        viewport={revealViewport}
+        transition={revealTransition()}
       >
         <div
           className={`flex flex-col gap-10 lg:items-center lg:gap-14 xl:gap-20 ${

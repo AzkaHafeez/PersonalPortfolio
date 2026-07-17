@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import type { ExperienceEntry } from "@/lib/types";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { EASE_EDITORIAL, revealViewport } from "@/lib/motion";
 
 function TimelineMilestone({
   entry,
@@ -22,13 +23,13 @@ function TimelineMilestone({
   return (
     <motion.article
       className="relative grid gap-6 pl-10 md:grid-cols-12 md:gap-8 md:pl-16"
-      initial={prefersReducedMotion ? false : { opacity: 0, x: -24 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, x: -18 }}
       whileInView={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={revealViewport}
       transition={{
         duration: 0.7,
         delay: index * 0.08,
-        ease: [0.16, 1, 0.3, 1],
+        ease: EASE_EDITORIAL,
       }}
     >
       <span

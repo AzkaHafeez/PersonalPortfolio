@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { DeviceFrame } from "@/components/exhibition/DeviceFrame";
+import { EASE_EDITORIAL } from "@/lib/motion";
 
 interface ImageGalleryProps {
-  images: { src: string; alt: string }[];
+  images: { src: string; alt: string; aspectRatio?: number }[];
   preferPhone?: boolean;
 }
 
@@ -38,12 +39,13 @@ export function ImageGallery({
               }`}
               onClick={() => setLightbox(index)}
               whileHover={{ y: -4 }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.4, ease: EASE_EDITORIAL }}
             >
               <DeviceFrame
                 src={image.src}
                 alt={image.alt}
                 variant={variant}
+                aspectRatio={image.aspectRatio}
               />
               <span className="label-caps mt-4 block text-fg-muted">
                 {String(index + 1).padStart(2, "0")} /{" "}

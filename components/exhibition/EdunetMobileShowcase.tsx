@@ -1,44 +1,62 @@
 "use client";
 
-import Link from "next/link";
 import type { Project } from "@/lib/types";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { FloatingPhone } from "@/components/exhibition/FloatingPhone";
 import { PhoneScene } from "@/components/exhibition/PhoneScene";
+import {
+  StoryBlock,
+  MetaGrid,
+  TechStack,
+  ProjectLinks,
+  padIndex,
+} from "@/components/projects/CaseNarrative";
+
+// Real viewBox on every edunet mock screen is 390 x 844 (iPhone-notch ratio) —
+// measured once since these are static, hand-drawn SVG screens, not photos.
+const EDUNET_SCREEN_ASPECT = 390 / 844;
 
 /** Homepage-only assets — never reuse /images/projects/case/* here */
 const SCREENS = {
   dashboard: {
     src: "/images/projects/home/edunet-dashboard.svg",
     alt: "Classroom Dashboard",
+    aspectRatio: EDUNET_SCREEN_ASPECT,
   },
   list: {
     src: "/images/projects/home/edunet-list.svg",
     alt: "Classroom List",
+    aspectRatio: EDUNET_SCREEN_ASPECT,
   },
   chat: {
     src: "/images/projects/home/edunet-chat.svg",
     alt: "Chat",
+    aspectRatio: EDUNET_SCREEN_ASPECT,
   },
   home: {
     src: "/images/projects/home/edunet-home.svg",
     alt: "Home",
+    aspectRatio: EDUNET_SCREEN_ASPECT,
   },
   videocall: {
     src: "/images/projects/home/edunet-videocall.svg",
     alt: "Video Call",
+    aspectRatio: EDUNET_SCREEN_ASPECT,
   },
   settings: {
     src: "/images/projects/home/edunet-settings.svg",
     alt: "Settings",
+    aspectRatio: EDUNET_SCREEN_ASPECT,
   },
   join: {
     src: "/images/projects/home/edunet-join.svg",
     alt: "Join Classroom",
+    aspectRatio: EDUNET_SCREEN_ASPECT,
   },
   notes: {
     src: "/images/projects/home/edunet-notes.svg",
     alt: "Notes",
+    aspectRatio: EDUNET_SCREEN_ASPECT,
   },
 } as const;
 
@@ -60,20 +78,6 @@ const FEATURES = [
     body: "Peer-to-peer audio and video for live classroom interaction.",
   },
 ] as const;
-
-function padIndex(n: number) {
-  return String(n).padStart(2, "0");
-}
-
-function StoryBlock({ label, body }: { label: string; body?: string }) {
-  if (!body) return null;
-  return (
-    <div className="border-t border-border pt-6">
-      <p className="label-caps mb-3">{label}</p>
-      <p className="text-sm leading-relaxed text-fg-muted md:text-base">{body}</p>
-    </div>
-  );
-}
 
 interface EdunetMobileShowcaseProps {
   project: Project;
@@ -98,49 +102,15 @@ export function EdunetMobileShowcase({
             <p className="mt-4 max-w-xl text-base leading-relaxed text-fg-muted">
               {project.description}
             </p>
-            <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-              {[
-                { label: "Category", value: project.category ?? project.tag },
-                { label: "Role", value: project.role },
-                { label: "Duration", value: project.duration },
-                { label: "Year", value: project.year },
-              ].map((item) => (
-                <div key={item.label} className="border-t border-border pt-3">
-                  <dt className="label-caps">{item.label}</dt>
-                  <dd className="mt-1 text-sm md:text-base">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-6">
-              <p className="label-caps mb-3">Tech Stack</p>
-              <p className="text-sm text-fg-muted">
-                {project.technologies.join(" · ")}
-              </p>
-            </div>
+            <MetaGrid project={project} />
+            <TechStack technologies={project.technologies} />
             <div className="mt-10 space-y-6">
               <StoryBlock label="Problem" body={project.problem} />
               <StoryBlock label="Solution" body={project.solution} />
               <StoryBlock label="Process" body={project.process} />
               <StoryBlock label="Outcome" body={project.outcome} />
             </div>
-            <div className="mt-10 flex flex-wrap gap-6">
-              {project.links.github && (
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="label-caps border-b border-border pb-0.5 text-fg-muted transition-colors hover:border-fg hover:text-fg"
-                >
-                  GitHub ↗
-                </a>
-              )}
-              <Link
-                href={`/projects/${project.slug}`}
-                className="label-caps border-b border-border pb-0.5 text-fg-muted transition-colors hover:border-fg hover:text-fg"
-              >
-                Full Case Study
-              </Link>
-            </div>
+            <ProjectLinks project={project} />
           </div>
 
           <div className="lg:col-span-7">
@@ -168,7 +138,6 @@ export function EdunetMobileShowcase({
                       floatDelay={0}
                       depth={1.08}
                       className="w-[180px] md:w-[240px] lg:w-[260px]"
-                      priority
                       parallaxX={-p.x * 0.6}
                       parallaxY={-p.y * 0.5}
                     />

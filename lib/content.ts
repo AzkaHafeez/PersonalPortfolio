@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import type {
   ExperienceEntry,
+  ImageDims,
   Project,
   ProjectFrontmatter,
   ResearchItem,
@@ -11,8 +12,36 @@ import type {
   WritingArticle,
   WritingFrontmatter,
 } from "./types";
+import { getImageDimensions } from "./image-meta";
 
 const contentDir = path.join(process.cwd(), "content");
+
+/** Every image src referenced anywhere in a project's frontmatter, deduped. */
+function collectImageSrcs(fm: ProjectFrontmatter): string[] {
+  const srcs: (string | null | undefined)[] = [
+    fm.coverImage,
+    fm.placeholders?.primary,
+    fm.placeholders?.secondary,
+    fm.placeholders?.scroll,
+    fm.placeholders?.browserPhone?.browser,
+    fm.placeholders?.browserPhone?.phone,
+    fm.placeholders?.card,
+    fm.escapeDuo?.left,
+    fm.escapeDuo?.right,
+    ...(fm.placeholders?.wall ?? []).map((w) => w.src),
+    ...(fm.images ?? []).map((i) => i.src),
+  ];
+  return Array.from(new Set(srcs.filter((s): s is string => Boolean(s))));
+}
+
+function buildImageDimensions(fm: ProjectFrontmatter): Record<string, ImageDims> {
+  const map: Record<string, ImageDims> = {};
+  for (const src of collectImageSrcs(fm)) {
+    const dims = getImageDimensions(src);
+    if (dims) map[src] = dims;
+  }
+  return map;
+}
 
 function readMdxFiles<T extends { slug: string }>(
   dir: string,
@@ -43,7 +72,7 @@ export function getAllProjects(): Project[] {
     path.join(contentDir, "projects"),
     (a, b) => parseInt(b.year) - parseInt(a.year)
   );
-  return projects;
+  return projects.map((p) => ({ ...p, imageDimensions: buildImageDimensions(p) }));
 }
 
 export function getHomeProjects(): Project[] {

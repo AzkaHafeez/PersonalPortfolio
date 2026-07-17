@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { SkillCategory } from "@/lib/types";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { EASE_EDITORIAL, revealViewport } from "@/lib/motion";
 
 export function SkillsSection({ categories }: { categories: SkillCategory[] }) {
   const prefersReducedMotion = useReducedMotion();
@@ -28,15 +29,15 @@ export function SkillsSection({ categories }: { categories: SkillCategory[] }) {
           <motion.div
             key={category.name}
             className="border-b border-border py-10 md:odd:pr-10 md:even:border-l md:even:pl-10"
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
             whileInView={
               prefersReducedMotion ? undefined : { opacity: 1, y: 0 }
             }
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={revealViewport}
             transition={{
               duration: 0.7,
               delay: index * 0.05,
-              ease: [0.16, 1, 0.3, 1],
+              ease: EASE_EDITORIAL,
             }}
           >
             <h3 className="font-serif-display text-2xl font-bold md:text-3xl">

@@ -1,7 +1,9 @@
 "use client";
 
+import { memo } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { EASE_EDITORIAL } from "@/lib/motion";
 
 export interface FloatingPhoneProps {
   src: string;
@@ -13,9 +15,12 @@ export interface FloatingPhoneProps {
   priority?: boolean;
   parallaxX?: number;
   parallaxY?: number;
+  /** Real screenshot aspect ratio (width / height); falls back to a
+   * standard phone-screenshot ratio when the source isn't measured yet. */
+  aspectRatio?: number;
 }
 
-export function FloatingPhone({
+export const FloatingPhone = memo(function FloatingPhone({
   src,
   alt,
   rotate = 0,
@@ -25,6 +30,7 @@ export function FloatingPhone({
   priority = false,
   parallaxX = 0,
   parallaxY = 0,
+  aspectRatio = 9 / 16,
 }: FloatingPhoneProps) {
   const prefersReducedMotion = useReducedMotion();
 
@@ -44,7 +50,7 @@ export function FloatingPhone({
       }
       transition={
         prefersReducedMotion
-          ? { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+          ? { duration: 0.4, ease: EASE_EDITORIAL }
           : {
               y: {
                 duration: 4.5 + floatDelay,
@@ -52,9 +58,9 @@ export function FloatingPhone({
                 ease: "easeInOut",
                 delay: floatDelay,
               },
-              rotate: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
-              x: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
-              scale: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+              rotate: { duration: 0.5, ease: EASE_EDITORIAL },
+              x: { duration: 0.4, ease: EASE_EDITORIAL },
+              scale: { duration: 0.5, ease: EASE_EDITORIAL },
             }
       }
     >
@@ -69,7 +75,7 @@ export function FloatingPhone({
 
       <div
         className="relative overflow-hidden rounded-[2.4rem] border border-obsidian/20 bg-obsidian p-[10px] shadow-[0_25px_50px_-12px_rgba(38,38,40,0.35)] dark:border-cream/15"
-        style={{ aspectRatio: "9 / 19.5" }}
+        style={{ aspectRatio }}
       >
         <span
           className="absolute -left-[2px] top-[18%] h-8 w-[2px] rounded-l-sm bg-obsidian/80"
@@ -114,4 +120,4 @@ export function FloatingPhone({
       </div>
     </motion.div>
   );
-}
+});

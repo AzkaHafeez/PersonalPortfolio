@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { revealTransition, revealViewport } from "@/lib/motion";
 
 interface FadeInProps {
   children: ReactNode;
@@ -27,15 +28,11 @@ export function FadeIn({
       className={className}
       initial={{
         opacity: 0,
-        y: direction === "up" ? 24 : 0,
+        y: direction === "up" ? 18 : 0,
       }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{
-        duration: 0.8,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      viewport={revealViewport}
+      transition={revealTransition(delay)}
     >
       {children}
     </motion.div>

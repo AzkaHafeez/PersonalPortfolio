@@ -58,8 +58,16 @@ export interface ProjectFrontmatter {
   images?: { src: string; alt: string }[];
 }
 
+export interface ImageDims {
+  width: number;
+  height: number;
+  aspectRatio: number;
+}
+
 export interface Project extends ProjectFrontmatter {
   content: string;
+  /** Computed from the real files on disk — src -> real dimensions. Never authored by hand. */
+  imageDimensions: Record<string, ImageDims>;
 }
 
 export interface WritingFrontmatter {

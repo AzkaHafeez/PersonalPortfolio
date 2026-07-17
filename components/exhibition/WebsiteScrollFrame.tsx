@@ -7,6 +7,11 @@ interface EscapingLaptopFrameProps {
   alt: string;
   className?: string;
   priority?: boolean;
+  /** Real full-page screenshot aspect ratio (width / height) — these vary a
+   * lot page to page, so the strip's height is driven by the actual capture
+   * rather than a fixed guess (which either crops long pages or leaves the
+   * short ones stretched). Falls back to a tall default when unmeasured. */
+  aspectRatio?: number;
 }
 
 /**
@@ -18,6 +23,7 @@ export function EscapingLaptopFrame({
   alt,
   className = "",
   priority = false,
+  aspectRatio = 10 / 28,
 }: EscapingLaptopFrameProps) {
   return (
     <div
@@ -39,7 +45,7 @@ export function EscapingLaptopFrame({
       <div className="relative z-0 mx-[calc(3.5%+7px)]">
         <div
           className="relative w-full overflow-hidden rounded-sm bg-bg-muted shadow-[0_32px_64px_-28px_rgba(38,38,40,0.45)]"
-          style={{ aspectRatio: "10 / 28" }}
+          style={{ aspectRatio }}
         >
           <Image
             src={src}

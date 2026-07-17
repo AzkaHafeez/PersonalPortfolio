@@ -4,6 +4,12 @@ import Link from "next/link";
 import type { Project } from "@/lib/types";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { DeviceFrame } from "@/components/exhibition/DeviceFrame";
+import {
+  StoryBlock,
+  MetaGrid,
+  TechStack,
+  padIndex,
+} from "@/components/projects/CaseNarrative";
 
 const SURFACES = [
   {
@@ -66,20 +72,6 @@ const SCREEN_CAPTIONS = [
   },
 ] as const;
 
-function padIndex(n: number) {
-  return String(n).padStart(2, "0");
-}
-
-function StoryBlock({ label, body }: { label: string; body?: string }) {
-  if (!body) return null;
-  return (
-    <div className="border-t border-border pt-6">
-      <p className="label-caps mb-3">{label}</p>
-      <p className="text-sm leading-relaxed text-fg-muted md:text-base">{body}</p>
-    </div>
-  );
-}
-
 interface EventHubShowcaseProps {
   project: Project;
   index: number;
@@ -104,26 +96,9 @@ export function EventHubShowcase({ project, index }: EventHubShowcaseProps) {
               {project.description}
             </p>
 
-            <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-              {[
-                { label: "Category", value: project.category ?? project.tag },
-                { label: "Role", value: project.role },
-                { label: "Duration", value: project.duration },
-                { label: "Year", value: project.year },
-              ].map((item) => (
-                <div key={item.label} className="border-t border-border pt-3">
-                  <dt className="label-caps">{item.label}</dt>
-                  <dd className="mt-1 text-sm md:text-base">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
+            <MetaGrid project={project} />
 
-            <div className="mt-6">
-              <p className="label-caps mb-3">Tech Stack</p>
-              <p className="text-sm text-fg-muted">
-                {project.technologies.join(" · ")}
-              </p>
-            </div>
+            <TechStack technologies={project.technologies} />
 
             <div className="mt-10 space-y-6">
               <StoryBlock label="Problem" body={project.problem} />
@@ -224,7 +199,7 @@ export function EventHubShowcase({ project, index }: EventHubShowcaseProps) {
                   src={images[0].src}
                   alt={images[0].alt}
                   variant={SCREEN_CAPTIONS[0].variant}
-                  priority
+                  aspectRatio={project.imageDimensions[images[0].src]?.aspectRatio}
                 />
                 <figcaption className="mt-4 border-t border-border pt-4">
                   <p className="label-caps">{SCREEN_CAPTIONS[0].label}</p>
@@ -242,6 +217,7 @@ export function EventHubShowcase({ project, index }: EventHubShowcaseProps) {
                     src={images[1].src}
                     alt={images[1].alt}
                     variant={SCREEN_CAPTIONS[1].variant}
+                    aspectRatio={project.imageDimensions[images[1].src]?.aspectRatio}
                   />
                   <figcaption className="mt-4 border-t border-border pt-4">
                     <p className="label-caps">{SCREEN_CAPTIONS[1].label}</p>
@@ -258,6 +234,7 @@ export function EventHubShowcase({ project, index }: EventHubShowcaseProps) {
                       src={images[2].src}
                       alt={images[2].alt}
                       variant={SCREEN_CAPTIONS[2].variant}
+                      aspectRatio={project.imageDimensions[images[2].src]?.aspectRatio}
                     />
                   </div>
                   <figcaption className="mt-4 border-t border-border pt-4">
@@ -276,6 +253,7 @@ export function EventHubShowcase({ project, index }: EventHubShowcaseProps) {
                   src={images[3].src}
                   alt={images[3].alt}
                   variant={SCREEN_CAPTIONS[3].variant}
+                  aspectRatio={project.imageDimensions[images[3].src]?.aspectRatio}
                 />
                 <figcaption className="mt-4 border-t border-border pt-4">
                   <p className="label-caps">{SCREEN_CAPTIONS[3].label}</p>

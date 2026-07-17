@@ -10,6 +10,8 @@ interface EscapingLaptopDuoProps {
   rightAlt?: string;
   title?: string;
   lead?: string;
+  leftAspectRatio?: number;
+  rightAspectRatio?: number;
 }
 
 /**
@@ -22,6 +24,8 @@ export function EscapingLaptopDuo({
   rightAlt = "Full-page view",
   title = "Full-page views",
   lead = "Tall page compositions escaping the laptop — static, no scroll scrub.",
+  leftAspectRatio,
+  rightAspectRatio,
 }: EscapingLaptopDuoProps) {
   return (
     <section className="section-padding container-editorial !py-16 md:!py-24">
@@ -39,6 +43,7 @@ export function EscapingLaptopDuo({
             src={left}
             alt={leftAlt}
             className="max-w-none"
+            aspectRatio={leftAspectRatio}
           />
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -46,6 +51,7 @@ export function EscapingLaptopDuo({
             src={right}
             alt={rightAlt}
             className="max-w-none"
+            aspectRatio={rightAspectRatio}
           />
         </FadeIn>
       </div>
