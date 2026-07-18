@@ -61,12 +61,12 @@ export function PublicationSidebar({ projects, activeTab }: PublicationSidebarPr
         </div>
       )}
 
-      {/* The Digest — Obsidian card with lime CTA */}
+      {/* The Digest - Obsidian card with lime CTA */}
       <div className="rounded-md bg-obsidian p-6 text-cream">
         <p className="font-serif-display mb-2 text-xl font-bold">The Digest</p>
         <p className="mb-5 text-sm leading-relaxed text-cream/80">
           Notes on building AI products, shipping software, and editorial
-          interfaces. No spam — just craft.
+          interfaces. No spam - just craft.
         </p>
         <form
           action={`mailto:${siteConfig.email}?subject=Subscribe to The Digest`}

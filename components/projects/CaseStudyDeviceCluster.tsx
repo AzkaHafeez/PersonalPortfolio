@@ -14,7 +14,7 @@ interface CaseStudyDeviceClusterProps {
   captions?: [string, string, string];
   totalFrames?: number;
   className?: string;
-  /** Real per-project screenshots — each slot is its own dedicated image,
+  /** Real per-project screenshots - each slot is its own dedicated image,
    * never shared. Falls back to a clean placeholder card when a slot has
    * no image yet, instead of ever stretching/cropping the wrong content
    * into it. */
@@ -42,7 +42,7 @@ export function CaseStudyDeviceCluster({
       aria-label={`${title} product lineup`}
     >
       <div className="relative mx-auto aspect-[5/4] w-full max-w-2xl sm:aspect-[16/11]">
-        {/* Laptop — center back */}
+        {/* Laptop - center back */}
         <div className="absolute left-[14%] right-[14%] top-[10%] z-10 sm:left-[16%] sm:right-[16%] sm:top-[12%]">
           <div className="relative">
             <div
@@ -83,7 +83,7 @@ export function CaseStudyDeviceCluster({
           </div>
         </div>
 
-        {/* Tablet — lower right */}
+        {/* Tablet - lower right */}
         <div className="absolute bottom-[8%] right-[3%] z-20 w-[40%] sm:bottom-[10%] sm:right-[5%] sm:w-[38%]">
           <div
             className="pointer-events-none absolute -inset-3 -z-10 rounded-2xl opacity-45 blur-xl"
@@ -118,7 +118,7 @@ export function CaseStudyDeviceCluster({
           </div>
         </div>
 
-        {/* Phone — left front */}
+        {/* Phone - left front */}
         <div className="absolute bottom-[6%] left-[3%] z-30 w-[22%] max-w-[120px] sm:bottom-[8%] sm:left-[5%] sm:w-[20%] sm:max-w-[140px]">
           <div
             className="pointer-events-none absolute -inset-3 -z-10 rounded-[2rem] opacity-45 blur-xl"

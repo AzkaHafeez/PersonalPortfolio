@@ -203,7 +203,7 @@ function AboutFeed({
         <ul className="space-y-2">
           {aboutContent.values.map((v) => (
             <li key={v} className="text-sm text-fg-muted">
-              — {v}
+              - {v}
             </li>
           ))}
         </ul>

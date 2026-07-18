@@ -15,7 +15,7 @@ interface EscapingLaptopDuoProps {
 }
 
 /**
- * Two static escaping-MacBook pages side by side — mid case-study beat.
+ * Two static escaping-MacBook pages side by side - mid case-study beat.
  */
 export function EscapingLaptopDuo({
   left,
@@ -23,7 +23,7 @@ export function EscapingLaptopDuo({
   leftAlt = "Full-page view",
   rightAlt = "Full-page view",
   title = "Full-page views",
-  lead = "Tall page compositions escaping the laptop — static, no scroll scrub.",
+  lead = "Tall page compositions escaping the laptop - static, no scroll scrub.",
   leftAspectRatio,
   rightAspectRatio,
 }: EscapingLaptopDuoProps) {

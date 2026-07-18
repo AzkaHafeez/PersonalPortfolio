@@ -13,7 +13,7 @@ interface DeviceFrameProps {
   variant?: FrameVariant;
   className?: string;
   priority?: boolean;
-  /** Real screenshot aspect ratio (width / height) — pass through from
+  /** Real screenshot aspect ratio (width / height) - pass through from
    * `project.imageDimensions[src]` so the frame fits the actual image
    * instead of an assumed device shape. Falls back to a sane default
    * per variant when the source dimensions aren't known yet. */
@@ -43,7 +43,7 @@ const variantStyles: Record<
       "mx-auto max-w-[220px] rounded-[1.75rem] border border-border bg-obsidian p-2 shadow-xl",
     screen: "rounded-[1.35rem]",
     // Real phone screenshots in this project run ~9/16, not the taller
-    // notched-iPhone ~9/19.5 the old default assumed — that mismatch is
+    // notched-iPhone ~9/19.5 the old default assumed - that mismatch is
     // what cropped the left/right edges off every mobile screenshot.
     defaultAspect: 9 / 16,
     objectPosition: "top",

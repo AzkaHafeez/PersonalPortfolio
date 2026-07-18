@@ -37,7 +37,7 @@ const CAPABILITIES = [
   },
   {
     title: "Role-aware JWT dashboards",
-    body: "Student, handler, and admin surfaces share one system — permissions stay obvious in the UI.",
+    body: "Student, handler, and admin surfaces share one system - permissions stay obvious in the UI.",
   },
   {
     title: "Discussions & engagement",
@@ -52,7 +52,7 @@ const CAPABILITIES = [
 const SCREEN_CAPTIONS = [
   {
     label: "Society dashboard",
-    purpose: "Home base for campus societies — overview, presence, and next actions.",
+    purpose: "Home base for campus societies - overview, presence, and next actions.",
     variant: "macbook" as const,
   },
   {
@@ -185,7 +185,7 @@ export function EventHubShowcase({ project, index }: EventHubShowcaseProps) {
           One campus. Three roles. Full event lifecycle.
         </h4>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-muted md:text-lg">
-          From discovery to RSVP to admin oversight — EventHub keeps society
+          From discovery to RSVP to admin oversight - EventHub keeps society
           operations in one cohesive interface so students, handlers, and admins
           never lose the thread of campus life.
         </p>

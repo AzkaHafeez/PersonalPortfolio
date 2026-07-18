@@ -6,7 +6,7 @@ export interface ProjectLinks {
 
 export type DeviceVariant = "macbook" | "ipad" | "iphone" | "browser";
 
-/** Explicit home-room image slots — set each URL yourself; nothing auto-fills. */
+/** Explicit home-room image slots - set each URL yourself; nothing auto-fills. */
 export interface ProjectPlaceholders {
   /** Main hero device (laptop / browser) */
   primary?: string | null;
@@ -42,9 +42,9 @@ export interface ProjectFrontmatter {
   process?: string;
   outcome?: string;
   coverImage?: string | null;
-  /** Optional named home slots — paths under /images/projects/home/* */
+  /** Optional named home slots - paths under /images/projects/home/* */
   placeholders?: ProjectPlaceholders;
-  /** Case study dual escaping MacBooks — paths under /images/projects/case/* */
+  /** Case study dual escaping MacBooks - paths under /images/projects/case/* */
   escapeDuo?: {
     left: string;
     right: string;
@@ -54,7 +54,7 @@ export interface ProjectFrontmatter {
   tags: string[];
   links: ProjectLinks;
   technologies: string[];
-  /** Case study gallery — paths under /images/projects/case/* (do not reuse home URLs) */
+  /** Case study gallery - paths under /images/projects/case/* (do not reuse home URLs) */
   images?: { src: string; alt: string }[];
 }
 
@@ -66,7 +66,7 @@ export interface ImageDims {
 
 export interface Project extends ProjectFrontmatter {
   content: string;
-  /** Computed from the real files on disk — src -> real dimensions. Never authored by hand. */
+  /** Computed from the real files on disk - src -> real dimensions. Never authored by hand. */
   imageDimensions: Record<string, ImageDims>;
 }
 

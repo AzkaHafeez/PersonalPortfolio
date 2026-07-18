@@ -174,7 +174,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
           Work that reads like <em className="italic">publication</em>
         </h2>
         <p className="mt-4 max-w-2xl text-fg-muted">
-          Each project is a case study — not a thumbnail in a grid, but a story
+          Each project is a case study - not a thumbnail in a grid, but a story
           about problems solved and products shipped.
         </p>
       </FadeIn>

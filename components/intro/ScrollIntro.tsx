@@ -6,7 +6,7 @@ import { CinematicScene } from "./CinematicScene";
 
 /**
  * Cinematic intro landing.
- * Fixed overlay + spacer scrub — portfolio content sits AFTER
+ * Fixed overlay + spacer scrub - portfolio content sits AFTER
  * the spacer so when the scene dissolves, the hero is at top.
  */
 export function ScrollIntro({ children }: { children: React.ReactNode }) {

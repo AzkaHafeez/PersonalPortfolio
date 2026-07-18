@@ -50,7 +50,7 @@ function TimelineMilestone({
         <ul className="mt-6 space-y-2">
           {entry.contributions.map((c) => (
             <li key={c} className="text-sm text-fg-muted">
-              — {c}
+              - {c}
             </li>
           ))}
         </ul>
@@ -79,12 +79,12 @@ export function ExperienceSection({ entries }: { entries: ExperienceEntry[] }) {
       className="section-padding container-editorial relative z-10 scroll-mt-20"
     >
       <FadeIn>
-        <p className="label-caps mb-6 text-cherry">04 — Experience</p>
+        <p className="label-caps mb-6 text-cherry">04 - Experience</p>
         <h2 className="font-serif-display max-w-3xl text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.05] tracking-tight">
           Path through the field
         </h2>
         <p className="mt-6 max-w-xl text-fg-muted">
-          Research, product, leadership, and craft — milestones that shaped how
+          Research, product, leadership, and craft - milestones that shaped how
           I build.
         </p>
       </FadeIn>

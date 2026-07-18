@@ -103,7 +103,7 @@ function readSvgSize(buf: Buffer): ImageDims | null {
 
 /**
  * Reads the real pixel (or SVG viewBox) dimensions for an image under /public.
- * Server-only — never import this from a "use client" component. Memoized per
+ * Server-only - never import this from a "use client" component. Memoized per
  * process; a fresh `next build` / dev reload re-reads the file, so replacing a
  * screenshot with a differently-shaped one is picked up automatically.
  * Returns null when the file is missing or unreadable so callers can fall back

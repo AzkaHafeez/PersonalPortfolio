@@ -14,12 +14,12 @@ export function SkillsSection({ categories }: { categories: SkillCategory[] }) {
       className="section-padding container-editorial relative z-10 scroll-mt-20"
     >
       <FadeIn>
-        <p className="label-caps mb-6 text-cherry">05 — Skills</p>
+        <p className="label-caps mb-6 text-cherry">05 - Skills</p>
         <h2 className="font-serif-display max-w-3xl text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.05] tracking-tight">
           Tools of the craft
         </h2>
         <p className="mt-6 max-w-xl text-fg-muted">
-          Editorial blocks by domain — the technologies I reach for when
+          Editorial blocks by domain - the technologies I reach for when
           building.
         </p>
       </FadeIn>

@@ -8,7 +8,7 @@ import { ProjectsArchive } from "@/components/projects/ProjectsArchive";
 export const metadata: Metadata = {
   title: "View All Projects",
   description:
-    "All case studies from Azka Hafeez — featured exhibition work and archive projects.",
+    "All case studies from Azka Hafeez - featured exhibition work and archive projects.",
 };
 
 export default function ProjectsArchivePage() {
@@ -34,7 +34,7 @@ export default function ProjectsArchivePage() {
             View all projects
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-muted md:text-lg">
-            Full lineup — featured exhibition work and everything else in the
+            Full lineup - featured exhibition work and everything else in the
             vault. Each row opens a case study.
           </p>
 

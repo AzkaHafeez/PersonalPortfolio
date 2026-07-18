@@ -44,7 +44,7 @@ function SeededParticles({ count }: { count: number }) {
 }
 
 /**
- * Fixed atmospheric layer — blueprint grid, lines, particles, soft depth.
+ * Fixed atmospheric layer - blueprint grid, lines, particles, soft depth.
  * Opacity shifts gently with page scroll.
  */
 export function ExhibitionBackground() {

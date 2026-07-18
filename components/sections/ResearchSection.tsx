@@ -13,7 +13,7 @@ export function ResearchSection({ items }: { items: ResearchItem[] }) {
           Experiments & ongoing work
         </h2>
         <p className="mt-4 max-w-2xl text-fg-muted">
-          Things I&apos;m exploring — AI systems, offline networks, editorial
+          Things I&apos;m exploring - AI systems, offline networks, editorial
           interfaces, and open ideas.
         </p>
       </FadeIn>

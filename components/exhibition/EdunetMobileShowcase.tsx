@@ -12,11 +12,11 @@ import {
   padIndex,
 } from "@/components/projects/CaseNarrative";
 
-// Real viewBox on every edunet mock screen is 390 x 844 (iPhone-notch ratio) —
+// Real viewBox on every edunet mock screen is 390 x 844 (iPhone-notch ratio) -
 // measured once since these are static, hand-drawn SVG screens, not photos.
 const EDUNET_SCREEN_ASPECT = 390 / 844;
 
-/** Homepage-only assets — never reuse /images/projects/case/* here */
+/** Homepage-only assets - never reuse /images/projects/case/* here */
 const SCREENS = {
   dashboard: {
     src: "/images/projects/home/edunet-dashboard.svg",
@@ -71,7 +71,7 @@ const FEATURES = [
   },
   {
     title: "Local Calls",
-    body: "Move into Video Call when conversation needs a face — still offline, no cloud required.",
+    body: "Move into Video Call when conversation needs a face - still offline, no cloud required.",
   },
   {
     title: "WebRTC",
@@ -172,7 +172,7 @@ export function EdunetMobileShowcase({
             <p className="mt-4 max-w-md text-sm leading-relaxed text-fg-muted md:text-base">
               The classroom flow is simple: Discover nearby peers from Home,
               Message in Chat, then Call when the conversation needs a live
-              Video Call — all without internet.
+              Video Call - all without internet.
             </p>
             <ul className="mt-10 space-y-0">
               {FEATURES.map((f) => (

@@ -1,7 +1,7 @@
 import { introAnnotations } from "@/content/site";
 
 /**
- * Magazine-style corner annotations — Cream with Lime whisper.
+ * Magazine-style corner annotations - Cream with Lime whisper.
  */
 export function CornerAnnotations() {
   const base =

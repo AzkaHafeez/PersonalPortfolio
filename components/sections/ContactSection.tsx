@@ -11,7 +11,7 @@ export function ContactSection() {
       className="section-padding container-editorial relative z-10 scroll-mt-20 !pb-32"
     >
       <FadeIn>
-        <p className="label-caps mb-6 text-cherry">06 — Contact</p>
+        <p className="label-caps mb-6 text-cherry">06 - Contact</p>
       </FadeIn>
 
       <FadeIn delay={0.08}>

@@ -35,4 +35,4 @@ images:
     alt: …
 ```
 
-Replace a file in `home/` or `case/` independently — the other surface stays unchanged.
+Replace a file in `home/` or `case/` independently - the other surface stays unchanged.

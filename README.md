@@ -1,4 +1,4 @@
-# AZKA. — Editorial Portfolio
+# AZKA. - Editorial Portfolio
 
 AI Engineer & Full-Stack Developer portfolio built with Next.js, Tailwind CSS, and Framer Motion.
 

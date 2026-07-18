@@ -77,7 +77,7 @@ export function HeroSection() {
         className="pointer-events-none absolute bottom-8 right-6 hidden text-[10px] uppercase tracking-[0.3em] text-fg-muted/50 md:block"
         aria-hidden="true"
       >
-        01 — Entrance
+        01 - Entrance
       </div>
     </SectionShell>
   );

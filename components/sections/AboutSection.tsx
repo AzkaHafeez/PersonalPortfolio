@@ -8,7 +8,7 @@ export function AboutSection() {
   return (
     <SectionShell id="about" className="relative z-10">
       <FadeIn>
-        <p className="label-caps mb-6 text-cherry">02 — About</p>
+        <p className="label-caps mb-6 text-cherry">02 - About</p>
       </FadeIn>
 
       <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">

@@ -14,7 +14,7 @@ interface CinematicSceneProps {
 }
 
 /**
- * Themed cinematic landing — Obsidian / Cream / Lavender / Lime / Cherry.
+ * Themed cinematic landing - Obsidian / Cream / Lavender / Lime / Cherry.
  * Expanded with blueprint lines, grid fade, and soft zoom toward the hero.
  */
 export function CinematicScene({

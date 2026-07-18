@@ -55,7 +55,7 @@ export function AsymmetricBand({
         />
       </div>
       <span className="label-caps mt-3 block text-fg-muted">
-        {String(index + 1).padStart(2, "0")} — {image.alt}
+        {String(index + 1).padStart(2, "0")} - {image.alt}
       </span>
     </button>
   ) : null;
@@ -63,7 +63,7 @@ export function AsymmetricBand({
   const copy = (
     <div className={imageLeft ? "lg:pl-2 xl:pl-6" : "lg:pr-2 xl:pr-6"}>
       <p className="label-caps mb-3 text-cherry">
-        {String(index + 1).padStart(2, "0")} — Chapter
+        {String(index + 1).padStart(2, "0")} - Chapter
       </p>
       <h2 className="font-serif-display text-3xl font-bold tracking-tight md:text-4xl">
         {title}

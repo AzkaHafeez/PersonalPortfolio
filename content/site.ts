@@ -51,7 +51,7 @@ export const profileTabs = [
 
 export type ProfileTabId = (typeof profileTabs)[number]["id"];
 
-/** Legacy nav — retained for secondary pages if needed */
+/** Legacy nav - retained for secondary pages if needed */
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
@@ -74,7 +74,7 @@ export const exhibitionNavLinks = [
 export const aboutContent = {
   headline: "Who I Am",
   lead: "Computer Science student at NUST.",
-  story: `Passionate about artificial intelligence, frontend engineering, machine learning, and design — building digital products that feel considered from the first pixel to the last line of code.`,
+  story: `Passionate about artificial intelligence, frontend engineering, machine learning, and design - building digital products that feel considered from the first pixel to the last line of code.`,
   secondary: `I move between research labs, product teams, and creative direction. Whether I'm training models, crafting interfaces, or designing systems, the through-line is the same: clarity, craft, and software people actually want to use.`,
   focusAreas: [
     { label: "AI", detail: "Models, evaluation, applied ML" },

@@ -7,7 +7,7 @@ interface EscapingLaptopFrameProps {
   alt: string;
   className?: string;
   priority?: boolean;
-  /** Real full-page screenshot aspect ratio (width / height) — these vary a
+  /** Real full-page screenshot aspect ratio (width / height) - these vary a
    * lot page to page, so the strip's height is driven by the actual capture
    * rather than a fixed guess (which either crops long pages or leaves the
    * short ones stretched). Falls back to a tall default when unmeasured. */
@@ -16,7 +16,7 @@ interface EscapingLaptopFrameProps {
 
 /**
  * MacBook with a tall full-page screenshot that starts in the screen
- * and escapes downward past the laptop base (static — not a scroll scrubber).
+ * and escapes downward past the laptop base (static - not a scroll scrubber).
  */
 export function EscapingLaptopFrame({
   src,
@@ -41,7 +41,7 @@ export function EscapingLaptopFrame({
         aria-hidden
       />
 
-      {/* Tall page strip — defines height; top peeks through laptop screen */}
+      {/* Tall page strip - defines height; top peeks through laptop screen */}
       <div className="relative z-0 mx-[calc(3.5%+7px)]">
         <div
           className="relative w-full overflow-hidden rounded-sm bg-bg-muted shadow-[0_32px_64px_-28px_rgba(38,38,40,0.45)]"
@@ -60,7 +60,7 @@ export function EscapingLaptopFrame({
 
       {/* Laptop lid + base overlaid on the top of the tall page */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20">
-        {/* Screen bezel — hollow so the page shows through */}
+        {/* Screen bezel - hollow so the page shows through */}
         <div
           className="mx-[3.5%] rounded-t-[10px] border-[7px] border-b-0 border-[#1c1c1e] shadow-[0_20px_40px_-18px_rgba(0,0,0,0.35)]"
           style={{
@@ -81,5 +81,5 @@ export function EscapingLaptopFrame({
   );
 }
 
-/** @deprecated Use EscapingLaptopFrame — kept as alias for existing imports */
+/** @deprecated Use EscapingLaptopFrame - kept as alias for existing imports */
 export const WebsiteScrollFrame = EscapingLaptopFrame;

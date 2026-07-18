@@ -12,7 +12,7 @@ interface ProjectsArchiveProps {
 }
 
 /**
- * Editorial list archive — row layout with a soft device preview.
+ * Editorial list archive - row layout with a soft device preview.
  */
 export function ProjectsArchive({ projects }: ProjectsArchiveProps) {
   const prefersReducedMotion = useReducedMotion();
@@ -78,7 +78,7 @@ export function ProjectsArchive({ projects }: ProjectsArchiveProps) {
                     isMobile ? "max-w-[120px]" : "max-w-[260px]"
                   }`}
                 >
-                  {/* Soft device — thin shell, no hard card border */}
+                  {/* Soft device - thin shell, no hard card border */}
                   <div
                     className={`bg-obsidian/90 p-[5px] shadow-[0_18px_36px_-18px_rgba(38,38,40,0.4)] ${
                       isMobile

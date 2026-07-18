@@ -140,7 +140,7 @@ export function BlueprintOverlay({ scrollProgress }: BlueprintOverlayProps) {
         <span className="absolute right-[6%] top-[8%]">01</span>
         <span className="absolute bottom-[8%] left-[6%]">GRID // 64</span>
         <span className="absolute bottom-[8%] right-[6%]">SCALE 1:1</span>
-        <span className="absolute left-[22%] top-[18%]">— ref</span>
+        <span className="absolute left-[22%] top-[18%]">- ref</span>
         <span className="absolute right-[22%] bottom-[18%]">azka · studio</span>
       </motion.div>
     </div>

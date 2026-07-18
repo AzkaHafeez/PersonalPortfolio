@@ -7,12 +7,12 @@ interface StarFieldProps {
   reducedMotion: boolean;
 }
 
-/** Sparse monochromatic stars — barely twinkling */
+/** Sparse monochromatic stars - barely twinkling */
 export function StarField({ reducedMotion }: StarFieldProps) {
   const stars = useMemo(
     () =>
       Array.from({ length: 32 }, (_, i) => {
-        // Deterministic positions — avoid hydration mismatch
+        // Deterministic positions - avoid hydration mismatch
         const seed = (i * 137.5) % 100;
         const seed2 = (i * 89.3) % 100;
         return {

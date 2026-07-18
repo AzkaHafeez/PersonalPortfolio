@@ -29,7 +29,7 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
   const escapeDuo = project.escapeDuo ?? null;
 
   // Auto-match each screenshot's real orientation to the right device slot
-  // in the hero cluster instead of assuming a fixed index per project — a
+  // in the hero cluster instead of assuming a fixed index per project - a
   // slot only ever gets an image whose orientation actually fits its
   // silhouette (landscape into laptop/tablet, portrait into phone), so a
   // mobile-only case study never stretches a portrait shot into the laptop
@@ -48,7 +48,7 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
       <MinimalHeader />
       <main className="min-h-screen bg-bg">
         <article>
-          {/* Asymmetric hero — copy left, device right */}
+          {/* Asymmetric hero - copy left, device right */}
           <header className="section-padding container-editorial !pb-8 md:!pb-12">
             <Link
               href="/projects"
@@ -186,14 +186,14 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                   Gallery
                 </h2>
                 <p className="mt-3 text-sm text-fg-muted">
-                  Device frames — click for fullscreen.
+                  Device frames - click for fullscreen.
                 </p>
                 <ImageGallery images={gallery} preferPhone={preferPhone} />
               </div>
             </div>
           )}
 
-          {/* Tech — offset column */}
+          {/* Tech - offset column */}
           <div className="section-padding container-editorial">
             <div className="grid gap-10 border-t border-border pt-16 lg:grid-cols-12">
               <div className="lg:col-span-4">
@@ -210,7 +210,7 @@ export async function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
             </div>
           </div>
 
-          {/* Next / prev — asymmetric */}
+          {/* Next / prev - asymmetric */}
           <nav
             className="section-padding container-editorial !pt-8"
             aria-label="Adjacent projects"

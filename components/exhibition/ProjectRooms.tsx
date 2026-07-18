@@ -20,7 +20,7 @@ import {
 } from "@/components/projects/CaseNarrative";
 import { revealTransition, revealViewport } from "@/lib/motion";
 
-/** Named home slots from MDX — never invents URLs. */
+/** Named home slots from MDX - never invents URLs. */
 function getPlaceholders(project: Project) {
   return project.placeholders ?? {};
 }
@@ -48,7 +48,7 @@ const WALL_SPANS = [
 /**
  * Exhibition wall.
  * If `placeholders` is set: only those URLs (browserPhone / wall / card).
- * Never falls back to case-study `images[]` — keeps home and case assets separate.
+ * Never falls back to case-study `images[]` - keeps home and case assets separate.
  * Otherwise (legacy): uses `images[]`.
  */
 function ExhibitionWall({ project }: { project: Project }) {
@@ -75,8 +75,8 @@ function ExhibitionWall({ project }: { project: Project }) {
             <BrowserPhoneSplit
               browserSrc={combo.browser}
               phoneSrc={combo.phone}
-              browserAlt={combo.browserAlt ?? `${project.title} — desktop`}
-              phoneAlt={combo.phoneAlt ?? `${project.title} — mobile`}
+              browserAlt={combo.browserAlt ?? `${project.title} - desktop`}
+              phoneAlt={combo.phoneAlt ?? `${project.title} - mobile`}
               browserAspectRatio={aspectOf(project, combo.browser)}
               phoneAspectRatio={aspectOf(project, combo.phone)}
             />
@@ -509,12 +509,12 @@ export function ProjectRooms({ projects }: { projects: Project[] }) {
       className="section-padding container-editorial relative z-10 scroll-mt-20"
     >
       <FadeIn>
-        <p className="label-caps mb-6 text-cherry">03 — Projects</p>
+        <p className="label-caps mb-6 text-cherry">03 - Projects</p>
         <h2 className="font-serif-display max-w-3xl text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.05] tracking-tight">
           Featured work
         </h2>
         <p className="mt-6 max-w-xl text-fg-muted">
-          Each project is a room in the exhibition — a full case study, not a
+          Each project is a room in the exhibition - a full case study, not a
           thumbnail in a grid.
         </p>
       </FadeIn>

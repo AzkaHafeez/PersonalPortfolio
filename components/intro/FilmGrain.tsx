@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Soft film grain — CSS animation on noise background.
+ * Soft film grain - CSS animation on noise background.
  * Keep opacity very low so it feels alive without noise.
  */
 export function FilmGrain({ reducedMotion }: { reducedMotion: boolean }) {
