@@ -14,7 +14,7 @@
     },
     {
       "name": "Databases",
-      "items": ["SQLite", "Firebase", "Hive"]
+      "items": ["MySQL", "PostgreSQL", "Hive", "MongoDB"]
     },
     {
       "name": "Cloud",
