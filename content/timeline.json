@@ -3,26 +3,20 @@
     {
       "year": "2024",
       "type": "project",
-      "title": "CaptainMDCAT Launch",
-      "description": "Founded and shipped AI-powered MDCAT prep platform serving 10,000+ students."
+      "title": "Captain MDCAT - Full Stack Growth",
+      "description": "Started as a frontend developer and expanded into full-stack work on the entry test preparation platform."
     },
     {
       "year": "2025",
       "type": "research",
       "title": "NCAI - AI/ML Research Intern",
-      "description": "Applied AI/ML research internship focused on models, evaluation, and practical pipelines."
+      "description": "Explored practical AI/ML systems through experiments, model evaluation, preprocessing, and research workflows."
     },
     {
       "year": "2025",
-      "type": "leadership",
-      "title": "AIHive - Frontend to Leadership",
-      "description": "Frontend Developer, then Deputy Director and Graphics Executive at AIHive."
-    },
-    {
-      "year": "2026",
-      "type": "project",
-      "title": "AURA Pro",
-      "description": "Shipped editorial product showcase with interactive 3D and scroll-led storytelling."
+      "type": "product",
+      "title": "AIHive - Software Engineering Intern",
+      "description": "Contributed across frontend, backend, and product development for the education and community platform."
     }
   ]
 }
