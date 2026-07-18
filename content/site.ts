@@ -58,7 +58,7 @@ export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
-  { label: "Resume", href: "/resume.pdf", external: true },
+  { label: "Resume", href: "/AzkaHafeez_Resume.pdf", external: true },
 ] as const;
 
 /** Floating exhibition navigation */
