@@ -4,53 +4,40 @@
       "id": "ncai-research",
       "company": "NCAI",
       "role": "AI/ML Research Intern",
-      "duration": "Research internship",
-      "summary": "Contributed to applied AI/ML research - exploring models, evaluation workflows, and practical machine learning systems in a national research context.",
+      "duration": "Research Internship",
+      "summary": "Contributed to applied AI and machine learning research by exploring practical model evaluation workflows, dataset preparation, and experimental systems.",
       "contributions": [
-        "Supported AI/ML research experiments and model evaluation",
-        "Worked with data pipelines and applied machine learning tooling",
-        "Documented findings and iterated on experimental setups"
+        "Conducted AI/ML experiments and evaluated model performance",
+        "Worked with datasets, preprocessing pipelines, and research workflows",
+        "Documented findings and iterated on experimental approaches"
       ],
-      "technologies": ["Python", "TensorFlow", "Machine Learning", "Research"]
+      "technologies": ["Python", "TensorFlow", "Machine Learning", "Data Analysis", "Research"]
     },
     {
       "id": "aihive-frontend",
       "company": "AIHive",
-      "role": "Frontend Developer",
-      "duration": "Product team",
-      "summary": "Built thoughtful frontend experiences for AIHive products - translating product requirements into clear, responsive interfaces.",
+      "role": "Software Engineering Intern (Product Engineering)",
+      "duration": "Product Engineering",
+      "summary": "Built software for AIHive's education and community platform, contributing across frontend, backend, and product development.",
       "contributions": [
-        "Implemented product UI with modern frontend patterns",
-        "Collaborated with design and engineering on interaction polish",
-        "Shipped features with attention to performance and accessibility"
+        "Developed full-stack product features across the platform",
+        "Built and integrated REST APIs and backend services",
+        "Collaborated with designers and engineers to deliver scalable solutions"
       ],
-      "technologies": ["React", "TypeScript", "Tailwind CSS", "Framer Motion"]
+      "technologies": ["React", "TypeScript", "FastAPI", "PostgreSQL", "Product Engineering"]
     },
     {
-      "id": "aihive-deputy",
-      "company": "AIHive",
-      "role": "Deputy Director",
-      "duration": "Leadership",
-      "summary": "Supported organizational direction and execution - aligning teams, priorities, and delivery across product and creative initiatives.",
+      "id": "captain-mdcat-fullstack",
+      "company": "Captain MDCAT",
+      "role": "Full Stack Developer",
+      "duration": "Frontend to Full Stack",
+      "summary": "Started as a frontend developer before expanding into full-stack work on Captain MDCAT's entry test preparation platform.",
       "contributions": [
-        "Helped coordinate product and creative workstreams",
-        "Supported planning, review cycles, and stakeholder communication",
-        "Mentored peers on craft standards and delivery quality"
+        "Built responsive user interfaces with React",
+        "Developed backend APIs and application logic",
+        "Integrated frontend components with backend services"
       ],
-      "technologies": ["Leadership", "Product", "Strategy"]
-    },
-    {
-      "id": "aihive-graphics",
-      "company": "AIHive",
-      "role": "Graphics Executive",
-      "duration": "Creative",
-      "summary": "Directed visual systems and graphic assets - ensuring brand consistency across campaigns, product surfaces, and exhibition-ready presentations.",
-      "contributions": [
-        "Created and maintained brand-aligned visual assets",
-        "Collaborated on campaign and product design materials",
-        "Elevated presentation quality across digital touchpoints"
-      ],
-      "technologies": ["Branding", "Graphics", "Design Systems"]
+      "technologies": ["React", "JavaScript", "FastAPI", "PostgreSQL", "Full Stack Development"]
     }
   ]
 }
