@@ -47,7 +47,7 @@ export function ContactSection() {
           LinkedIn
         </MagneticButton>
         <MagneticButton
-          href="/resume.pdf"
+          href="/AzkaHafeez_Resume.pdf"
           external
           className="label-caps border border-border px-6 py-3 transition-colors hover:border-fg"
         >

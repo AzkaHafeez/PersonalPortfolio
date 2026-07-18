@@ -62,7 +62,7 @@ export function HeroSection() {
               Contact Me
             </MagneticButton>
             <MagneticButton
-              href="/resume.pdf"
+              href="/AzkaHafeez_Resume.pdf"
               external
               className="label-caps border-b border-border pb-1 text-fg-muted transition-colors hover:border-fg hover:text-fg"
             >

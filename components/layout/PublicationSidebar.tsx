@@ -106,7 +106,7 @@ export function PublicationSidebar({ projects, activeTab }: PublicationSidebarPr
           LinkedIn ↗
         </a>
         <a
-          href="/resume.pdf"
+          href="/AzkaHafeez_Resume.pdf"
           className="block text-sm text-fg-muted transition-colors hover:text-cherry"
         >
           Resume ↓
